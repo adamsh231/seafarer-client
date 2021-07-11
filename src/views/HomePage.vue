@@ -17,12 +17,16 @@
             <div class="p-grid p-jc-center">
               <div class="p-col-12">
                 <div class="p-d-flex p-jc-center">
-                  <Button style="background-color: #0994be" class="button-authentication p-mt-3" label="Sign In" @click="$router.push('/sign-in')" />
+                  <Button class="button-authentication p-mt-3" @click="$router.push('/sign-in')" >
+                  <span class="p-button-label">Sign In</span>
+                  </Button>
                 </div>
               </div>
               <div class="p-col-12">
                 <div class="p-d-flex p-jc-center">
-                  <Button label="Sign Up" style="background-color: #a5e0f3" class="button-authentication p-mt-2"/>
+                  <Button label="Sign Up" class="button-authentication p-mt-2" style="background-color: #a5e0f3">
+                    <span class="p-button-label">Sign Up</span>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -76,5 +80,9 @@ export default {
 .button-authentication{
   width: 90%;
   height: 43px;
+}
+
+.p-button-label{
+  font-size: 22px;
 }
 </style>
