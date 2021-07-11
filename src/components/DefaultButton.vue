@@ -1,5 +1,5 @@
 <template>
-  <Button :class="addClass" :style="changeColor" @click="$router.push(to)">
+  <Button :class="addClass" :style="changeColor">
     <span class="p-button-label">{{ label }}</span>
   </Button>
 </template>
@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "DefaultButton",
-  props: ['label', 'to', 'color', 'class'],
+  props: ['label', 'color', 'class'],
   computed: {
     addClass(){
       return "button-authentication " + this.class

@@ -9,12 +9,12 @@
       <div class="p-grid p-jc-center">
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton class="p-mt-3" label="Sign In" to="/sign-in"/>
+            <DefaultButton class="p-mt-3" label="Sign In" @click="$router.push('/sign-in')"/>
           </div>
         </div>
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton class="p-mt-2" label="Sign Up" color="#a5e0f3" to="/sign-up"/>
+            <DefaultButton class="p-mt-2" label="Sign Up" color="#a5e0f3"  @click="$router.push('/sign-up')"/>
           </div>
         </div>
       </div>
