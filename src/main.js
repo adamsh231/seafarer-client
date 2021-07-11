@@ -11,6 +11,7 @@ import Card from "primevue/card"
 import InputText from "primevue/inputtext";
 import Button from 'primevue/button';
 import InputNumber from "primevue/inputnumber";
+import Divider from 'primevue/divider';
 
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
@@ -33,6 +34,7 @@ app.component('Card', Card)
 app.component('Button', Button)
 app.component('InputText', InputText)
 app.component('InputNumber', InputNumber)
+app.component('Divider', Divider)
 // ------------------------------ //
 
 app.mount('#app')

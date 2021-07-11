@@ -25,11 +25,11 @@
         </div>
         <div class="p-col-12 p-mt-3">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton label="Sign In"/>
+            <DefaultButton label="Sign In" to="/dashboard"/>
           </div>
         </div>
         <div class="p-col-12 p-mt-3">
-          <div class="p-text-center text-white p-text-bold" style="cursor:pointer;">Forgot Password?</div>
+          <div class="p-text-center text-white p-text-bold" style="cursor:pointer;" @click="$router.push('/recover/email')">Forgot Password?</div>
         </div>
       </div>
     </template>

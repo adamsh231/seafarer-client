@@ -3,6 +3,10 @@ import HomePage from '../views/HomePage.vue'
 import SignUp from '../views/SignUp.vue'
 import SignIn from '../views/SignIn.vue'
 import Verify from "../views/Verify";
+import EmailRecover from "../views/recover/EmailRecover";
+import OTPRecover from "../views/recover/OTPRecover";
+import PasswordRecover from "../views/recover/PasswordRecover";
+import MainMenu from "../views/dashboard/MainMenu";
 
 const routes = [
   {
@@ -24,6 +28,26 @@ const routes = [
     path: '/verify',
     name: 'Verify',
     component: Verify
+  },
+  {
+    path: '/recover/email',
+    name: 'EmailRecover',
+    component: EmailRecover
+  },
+  {
+    path: '/recover/otp',
+    name: 'OTPRecover',
+    component: OTPRecover
+  },
+  {
+    path: '/recover/password',
+    name: 'PasswordRecover',
+    component: PasswordRecover
+  },
+  {
+    path: '/dashboard',
+    name: 'MainMenu',
+    component: MainMenu
   }
 ]
 
