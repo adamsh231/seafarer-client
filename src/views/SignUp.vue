@@ -33,11 +33,11 @@
         </div>
         <div class="p-col-12 p-mt-3">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton label="Sign Up" color="#a5e0f3"/>
+            <DefaultButton label="Sign Up" color="#a5e0f3" to="/verify"/>
           </div>
         </div>
         <div class="p-col-12 p-mt-3">
-          <div class="p-text-center text-white p-text-light">By signing up you accept our</div>
+          <div class="p-text-center text-gray p-text-light">By signing up you accept our</div>
           <div class="p-text-center text-white p-text-bold p-mt-3" style="cursor:pointer;">Term of Services</div>
         </div>
       </div>

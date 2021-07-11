@@ -10,6 +10,7 @@ import PrimeVue from "primevue/config";
 import Card from "primevue/card"
 import InputText from "primevue/inputtext";
 import Button from 'primevue/button';
+import InputNumber from "primevue/inputnumber";
 
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
@@ -31,6 +32,7 @@ app.use(PrimeVue)
 app.component('Card', Card)
 app.component('Button', Button)
 app.component('InputText', InputText)
+app.component('InputNumber', InputNumber)
 // ------------------------------ //
 
 app.mount('#app')
