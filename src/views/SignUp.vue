@@ -19,6 +19,14 @@
               <div class="p-col-12 p-mt-3">
                 <div class="p-d-flex p-jc-center">
                   <span class="p-float-label button-authentication">
+                    <InputText id="full_name" class="input-authentication" type="text"/>
+                    <label for="full_name">Full Name</label>
+                  </span>
+                </div>
+              </div>
+              <div class="p-col-12 p-mt-3">
+                <div class="p-d-flex p-jc-center">
+                  <span class="p-float-label button-authentication">
                     <InputText id="email" class="input-authentication" type="text"/>
                     <label for="email">Email</label>
                   </span>
@@ -40,7 +48,8 @@
                 </div>
               </div>
               <div class="p-col-12 p-mt-3">
-                <div class="p-text-center text-white p-text-bold" style="cursor:pointer;">Forgot Password?</div>
+                <div class="p-text-center text-white p-text-light">By signing up you accept our</div>
+                <div class="p-text-center text-white p-text-bold p-mt-3" style="cursor:pointer;">Term of Services</div>
               </div>
             </div>
           </template>
@@ -54,8 +63,9 @@
 </template>
 
 <script>
+
 export default {
-  name: "SignIn"
+  name: "SignUp"
 }
 </script>
 
@@ -83,7 +93,7 @@ export default {
   background-color: #203572;
   margin: 0 5em 0 5em;
   border-radius: 25px;
-  height: 400px;
+  height: 520px;
   width: 420px;
 }
 
@@ -110,3 +120,4 @@ export default {
   cursor: pointer;
 }
 </style>
+

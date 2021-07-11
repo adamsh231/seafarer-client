@@ -11,20 +11,20 @@
         <Card class="card-authentication">
           <template #title>
             <div class="p-text-center p-text-light text-white p-mt-4" style="font-size: 30px">Welcome to</div>
-            <div class="p-text-center p-text-bold text-white p-mt-2"  style="font-size: 28px">seafarindo.online</div>
+            <div class="p-text-center p-text-bold text-white p-mt-2" style="font-size: 28px">seafarindo.online</div>
           </template>
           <template #content>
             <div class="p-grid p-jc-center">
               <div class="p-col-12">
                 <div class="p-d-flex p-jc-center">
-                  <Button class="button-authentication p-mt-3" @click="$router.push('/sign-in')" >
-                  <span class="p-button-label">Sign In</span>
+                  <Button class="button-authentication p-mt-3" @click="$router.push('/sign-in')">
+                    <span class="p-button-label">Sign In</span>
                   </Button>
                 </div>
               </div>
               <div class="p-col-12">
                 <div class="p-d-flex p-jc-center">
-                  <Button label="Sign Up" class="button-authentication p-mt-2" style="background-color: #a5e0f3">
+                  <Button label="Sign Up" class="button-authentication p-mt-2" style="background-color: #a5e0f3" @click="$router.push('/sign-up')">
                     <span class="p-button-label">Sign Up</span>
                   </Button>
                 </div>
@@ -77,12 +77,12 @@ export default {
   color: white;
 }
 
-.button-authentication{
+.button-authentication {
   width: 90%;
   height: 43px;
 }
 
-.p-button-label{
+.p-button-label {
   font-size: 22px;
 }
 </style>
