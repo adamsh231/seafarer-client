@@ -57,19 +57,18 @@ export default {
   },
   methods: {
     signIn() {
-      console.log(this.getCookie('token'))
-      // let toast = this.$toast
-      // axios.post('http://localhost:3000/authentication/v1/auth/login', {
-      //   email: this.email,
-      //   password: this.password
-      // }).then(function (response) {
-      //   let data = response.data
-      //   document.cookie = "token="+data.data.token
-      //   document.cookie = "refresh_token="+data.data.token
-      //   toast.add({severity:'success', summary: 'Success', detail: data.message, life: 1000})
-      // }).catch(function (error) {
-      //   toast.add({severity:'error', summary: 'Error', detail: error.response.data.message, life: 1000})
-      // })
+      let toast = this.$toast
+      axios.post('http://localhost:3000/authentication/v1/auth/login', {
+        email: this.email,
+        password: this.password
+      }).then(function (response) {
+        let data = response.data
+        document.cookie = "token="+data.data.token
+        document.cookie = "refresh_token="+data.data.token
+        toast.add({severity:'success', summary: 'Success', detail: data.message, life: 1000})
+      }).catch(function (error) {
+        toast.add({severity:'error', summary: 'Error', detail: error.response.data.message, life: 1000})
+      })
     }
 
   }
