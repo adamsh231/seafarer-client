@@ -1,112 +1,53 @@
 <template>
 
-  <div class="p-grid p-ai-center vertical-container">
-
-    <div class="p-col">
-      <div class="p-d-flex p-jc-center">
-
-        <div class="box-divider"></div>
-        <img src="../assets/logo2.png" class="logo-image p-my-auto">
-        <div class="box-divider"></div>
-
-        <Card class="card-authentication">
-          <template #title>
-            <i class="pi pi-arrow-left text-white" @click="$router.push('/')"/>
-            <div class="p-text-center p-text-light text-white" style="font-size: 30px">Sign Up</div>
-          </template>
-          <template #content>
-            <div class="p-grid p-jc-center">
-              <div class="p-col-12 p-mt-3">
-                <div class="p-d-flex p-jc-center">
-                  <span class="p-float-label button-authentication">
-                    <InputText id="email" class="input-authentication" type="text"/>
-                    <label for="email">Email</label>
-                  </span>
-                </div>
-              </div>
-              <div class="p-col-12 p-mt-3">
-                <div class="p-d-flex p-jc-center">
-                  <span class="p-float-label button-authentication">
-                    <InputText id="password" class="input-authentication" type="text"/>
-                    <label for="password">Password</label>
-                  </span>
-                </div>
-              </div>
-              <div class="p-col-12 p-mt-3">
-                <div class="p-d-flex p-jc-center">
-                  <Button class="button-authentication" style="background-color: #a5e0f3">
-                    <span class="p-button-label" >Sign Up</span>
-                  </Button>
-                </div>
-              </div>
-              <div class="p-col-12 p-mt-3">
-                <div class="p-text-center text-white p-text-bold" style="cursor:pointer;">Forgot Password?</div>
-              </div>
-            </div>
-          </template>
-        </Card>
-
+  <Default>
+    <template v-slot:title>
+      <BackButton to="/"/>
+      <div class="p-text-center p-text-light text-white" style="font-size: 30px">Sign In</div>
+    </template>
+    <template v-slot:content>
+      <div class="p-grid p-jc-center">
+        <div class="p-col-12 p-mt-3">
+          <div class="p-d-flex p-jc-center">
+            <span class="p-float-label input-span">
+              <InputText id="email" class="input-text" type="text"/>
+              <label for="email">Email</label>
+            </span>
+          </div>
+        </div>
+        <div class="p-col-12 p-mt-3">
+          <div class="p-d-flex p-jc-center">
+            <span class="p-float-label input-span">
+              <InputText id="password" class="input-text" type="text"/>
+              <label for="password">Password</label>
+            </span>
+          </div>
+        </div>
+        <div class="p-col-12 p-mt-3">
+          <div class="p-d-flex p-jc-center">
+            <DefaultButton label="Sign In"/>
+          </div>
+        </div>
+        <div class="p-col-12 p-mt-3">
+          <div class="p-text-center text-white p-text-bold" style="cursor:pointer;">Forgot Password?</div>
+        </div>
       </div>
-    </div>
-
-  </div>
+    </template>
+  </Default>
 
 </template>
 
 <script>
+import Default from "../components/Default";
+import BackButton from "../components/BackButton";
+import DefaultButton from "../components/DefaultButton";
+
 export default {
-  name: "SignIn"
-}
-</script>
-
-<style scoped lang="scss">
-.vertical-container {
-  height: 100vh;
-}
-
-@media only screen and (max-width: 1200px) {
-  .logo-image, .box-divider {
-    display: none;
+  name: "SignIn",
+  components: {
+    Default,
+    BackButton,
+    DefaultButton
   }
 }
-
-.logo-image {
-  height: 300px;
-  width: 300px;
-}
-
-.box-divider {
-  width: 120px;
-}
-
-.card-authentication {
-  background-color: #203572;
-  margin: 0 5em 0 5em;
-  border-radius: 25px;
-  height: 400px;
-  width: 420px;
-}
-
-.text-white {
-  color: white;
-}
-
-.button-authentication {
-  width: 90%;
-  height: 43px;
-}
-
-.input-authentication {
-  width: 100%;
-  height: 43px;
-}
-
-.p-button-label {
-  font-size: 22px;
-}
-
-.pi-arrow-left {
-  font-size: 2rem;
-  cursor: pointer;
-}
-</style>
+</script>

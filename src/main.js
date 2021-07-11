@@ -18,6 +18,8 @@ import 'primeicons/primeicons.css'                           //icons
 import 'primeflex/primeflex.css'
 // ------------------------------ //
 
+import './assets/global.scss' // custom
+
 const app = createApp(App)
 
 app.use(store)
