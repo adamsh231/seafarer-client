@@ -1,5 +1,4 @@
 <template>
-  <Toast/>
   <Default>
     <template v-slot:title>
       <BackButton to="/"/>
@@ -18,7 +17,7 @@
         <div class="p-col-12 p-mt-3">
           <div class="p-d-flex p-jc-center">
             <span class="p-float-label input-span">
-              <InputText id="email" v-model="email" class="input-text"/>
+              <InputText id="email" v-model="email" aria-describedby="username2-help" class="input-text" type="email"/>
               <label for="email">Email</label>
             </span>
           </div>
@@ -58,24 +57,68 @@ export default {
     BackButton,
     DefaultButton
   },
-  data(){
-    return{
+  data() {
+    return {
       fullName: "",
       email: "",
       password: ""
     }
   },
+  mounted() {
+    // if has token send to dashboard //todo: dashboard
+    if (this.isHasToken()){
+        this.$router.push("/verify")
+    }
+  },
   methods: {
-    signUp(){
-      let toast = this.$toast
-      axios.post('http://localhost:3000/authentication/v1/auth/register', {
+    validate(){
+      const invalid = "p-invalid"
+      if (this.fullName === ""){
+        document.getElementById("full_name").classList.add(invalid)
+      }
+      if (this.email === ""){
+        document.getElementById("email").classList.add(invalid)
+      }
+      if (this.password === ""){
+        document.getElementById("password").classList.add(invalid)
+      }
+    },
+    signUp() {
+
+      // validate form
+      this.validate()
+
+      // register
+      const context = this
+      axios.post(`${context.apiUrl}/register`, {
         name: this.fullName,
         email: this.email,
         password: this.password
       }).then(function (response) {
-        toast.add({severity:'success', summary: 'Success', detail: response.data.message, life: 1000})
+
+        // show toast
+        context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
+
+        // store token
+        context.setCookie(context.tokenCookie, response.data.data[context.tokenCookie])
+        context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
+
+        // redirect to verify
+        context.$router.push("/verify")
+
       }).catch(function (error) {
-        toast.add({severity:'error', summary: 'Error', detail: error.response.data.message, life: 1000})
+        try {
+          if (error.response.data.message.includes(context.duplicateMessage)) {
+            // email is exist
+            context.showToast(context.toastSeverityError, context.emailAlreadyTakenMessage, context.toastDefaultLife)
+          } else {
+            // unknown error
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+          }
+        } catch (e) {
+          // server error
+          context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+        }
       })
     }
   }

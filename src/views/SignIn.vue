@@ -1,5 +1,4 @@
 <template>
-  <Toast/>
   <Default>
     <template v-slot:title>
       <BackButton to="/"/>
@@ -63,11 +62,9 @@ export default {
         password: this.password
       }).then(function (response) {
         let data = response.data
-        document.cookie = "token="+data.data.token
-        document.cookie = "refresh_token="+data.data.token
-        toast.add({severity:'success', summary: 'Success', detail: data.message, life: 1000})
+        toast.add({severity: 'success', summary: 'Success', detail: data.message, life: 1000})
       }).catch(function (error) {
-        toast.add({severity:'error', summary: 'Error', detail: error.response.data.message, life: 1000})
+        toast.add({severity: 'error', summary: 'Error', detail: error.message, life: 1000})
       })
     }
 
