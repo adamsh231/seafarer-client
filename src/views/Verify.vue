@@ -59,7 +59,12 @@ export default {
           nextInput.focus()
         }
       } else {
-        currentInput.blur()
+        if (isNaN(currentInput.value)) {
+          currentInput.value = ""
+        } else if (currentInput.value !== "") {
+          this.otp[id] = currentInput.value
+          currentInput.blur()
+        }
       }
     }
   }

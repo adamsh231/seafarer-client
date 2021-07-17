@@ -85,6 +85,9 @@ export default {
       return isValid
     },
     signUp() {
+
+      //todo: disabled
+
       // validate form
       let isValid = this.validate()
 
