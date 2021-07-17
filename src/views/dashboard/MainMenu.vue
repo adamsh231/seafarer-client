@@ -47,6 +47,9 @@ export default {
   components: {
     Default,
     DefaultButton
+  },
+  created() {
+    this.tokenOnlyArea()
   }
 }
 </script>

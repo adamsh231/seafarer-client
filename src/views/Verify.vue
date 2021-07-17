@@ -44,19 +44,21 @@ export default {
       otp: []
     }
   },
+  created() {
+    this.tokenOnlyArea()
+  },
   methods: {
     validateAndNext(id, event) {
       let currentInput = document.getElementById(event.target.id)
-      let nextInput = ""
       if (event.target.nextSibling !== null) {
-        nextInput = document.getElementById(event.target.nextSibling.id)
+        let nextInput = document.getElementById(event.target.nextSibling.id)
         if (isNaN(currentInput.value)) {
           currentInput.value = ""
         } else if (currentInput.value !== "") {
           this.otp[id] = currentInput.value
           nextInput.focus()
         }
-      }else{
+      } else {
         currentInput.blur()
       }
     }

@@ -7,6 +7,7 @@ import EmailRecover from "../views/recover/EmailRecover";
 import OTPRecover from "../views/recover/OTPRecover";
 import PasswordRecover from "../views/recover/PasswordRecover";
 import MainMenu from "../views/dashboard/MainMenu";
+import Error from "../views/Error";
 
 const routes = [
     {
@@ -48,6 +49,11 @@ const routes = [
         path: '/dashboard',
         name: 'MainMenu',
         component: MainMenu
+    },
+    {
+        path: '/error',
+        name: 'Error',
+        component: Error
     },
     {
         path: '/:catchAll(.*)',

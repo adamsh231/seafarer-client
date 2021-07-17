@@ -64,62 +64,68 @@ export default {
       password: ""
     }
   },
-  mounted() {
-    // if has token send to dashboard //todo: dashboard
-    if (this.isHasToken()){
-        this.$router.push("/verify")
-    }
+  created() {
+    this.noTokenOnlyArea()
   },
   methods: {
-    validate(){
+    validate() {
+      //init
       const invalid = "p-invalid"
-      if (this.fullName === ""){
-        document.getElementById("full_name").classList.add(invalid)
-      }
-      if (this.email === ""){
-        document.getElementById("email").classList.add(invalid)
-      }
-      if (this.password === ""){
-        document.getElementById("password").classList.add(invalid)
-      }
-    },
-    signUp() {
+      let field = ["full_name", "email", "password"]
+      let isValid = true
 
-      // validate form
-      this.validate()
-
-      // register
-      const context = this
-      axios.post(`${context.apiUrl}/register`, {
-        name: this.fullName,
-        email: this.email,
-        password: this.password
-      }).then(function (response) {
-
-        // show toast
-        context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
-
-        // store token
-        context.setCookie(context.tokenCookie, response.data.data[context.tokenCookie])
-        context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
-
-        // redirect to verify
-        context.$router.push("/verify")
-
-      }).catch(function (error) {
-        try {
-          if (error.response.data.message.includes(context.duplicateMessage)) {
-            // email is exist
-            context.showToast(context.toastSeverityError, context.emailAlreadyTakenMessage, context.toastDefaultLife)
-          } else {
-            // unknown error
-            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
-          }
-        } catch (e) {
-          // server error
-          context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+      // add class invalid
+      field.forEach(value => {
+        if (document.getElementById(value).value === "") {
+          isValid = false
+          document.getElementById(value).classList.add(invalid)
         }
       })
+
+      return isValid
+    },
+    signUp() {
+      // validate form
+      let isValid = this.validate()
+
+      const context = this
+      if (isValid) {
+        // register
+        let url = `${context.apiUrl}/register`
+        let data = {
+          name: this.fullName,
+          email: this.email,
+          password: this.password
+        }
+        axios.post(url, data).then(function (response) {
+
+          // show toast
+          context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
+
+          // store token
+          context.setCookie(context.tokenCookie, response.data.data[context.tokenCookie])
+          context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
+
+          // redirect to verify
+          context.$router.push("/verify")
+
+        }).catch(function (error) {
+          try {
+            if (error.response.data.message.includes(context.duplicateMessage)) {
+              // email is exist
+              context.showToast(context.toastSeverityError, context.emailAlreadyTakenMessage, context.toastDefaultLife)
+            } else {
+              // unknown error
+              context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+            }
+          } catch (e) {
+            // server error
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+          }
+        })
+      }else{
+        context.showToast(context.toastSeverityError, context.incompleteFormMessage, context.toastDefaultLife)
+      }
     }
   }
 }

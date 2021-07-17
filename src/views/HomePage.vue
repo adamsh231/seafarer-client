@@ -32,6 +32,9 @@ export default {
   components: {
     Default,
     DefaultButton
+  },
+  created() {
+    this.noTokenOnlyArea()
   }
 }
 </script>
