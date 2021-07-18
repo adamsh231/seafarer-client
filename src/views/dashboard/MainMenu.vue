@@ -49,7 +49,7 @@ export default {
     DefaultButton
   },
   created() {
-    this.tokenOnlyArea()
+    this.tokenOnlyArea(true)
   }
 }
 </script>

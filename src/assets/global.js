@@ -14,6 +14,7 @@ export default {
             toastSeverityError: "error",
             toastDefaultLife: 1000,
 
+            otpMessage: "otp",
             duplicateMessage: "duplicate",
             verifiedMessage: "already verified",
             notVerifiedMessage: "not verified",
@@ -41,31 +42,56 @@ export default {
                 this.tokenOnlyArea()
             }
         },
-        tokenOnlyArea() {
+        tokenOnlyArea(verifiedOnly = false) {
             if (this.getCookie(this.tokenCookie) !== undefined) {
-                // verify token
+
+                // current user api
                 const context = this
-                let header = {headers: {Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`}}
-                axios.post(`${context.apiUrl}/verified/current`, {}, header).then(function (response) {
-                    console.log(response.data)
+                let url = `${context.apiUrl}/verified/current`
+                let header = {
+                    headers: {
+                        Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,
+                    }
+                }
+
+                axios.get(url, header).then(function (response) {
+
+                    // success response means this user is verified
+                    // param @verifiedOnly used if any access to outside verified area
+                    // will be redirect back to /dashboard
+                    // which is root of verified area
+                    if (!verifiedOnly) {
+                        context.$router.push('/dashboard')
+                    }
+
                 }).catch(function (error) {
                     try {
-                        if (error.response.data.message.includes(context.verifiedMessage)) {
-                            context.$router.push('/dashboard')
-                        } else if (error.response.data.message.includes(context.notVerifiedMessage)) {
+                        if (error.response.data.message.includes(context.notVerifiedMessage)) {
+
+                            // not verified redirect
                             context.$router.push('/verify')
+
                         } else {
+
+                            // false token redirect
                             context.deleteCookie(context.tokenCookie)
                             context.deleteCookie(context.refreshTokenCookie)
                             context.$router.push('/')
+
                         }
                     } catch (e) {
+
+                        // unknown redirect
                         context.$router.push('/error')
                         context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
                     }
                 })
-            }else{
+            } else {
+
+                // redirect direct access without token
                 this.$router.push('/')
+
             }
         }
 

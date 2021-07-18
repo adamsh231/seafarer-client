@@ -32,7 +32,7 @@
         </div>
         <div class="p-col-12 p-mt-3">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton label="Sign Up" color="#a5e0f3" @click="signUp()"/>
+            <DefaultButton label="Sign Up" color="#a5e0f3" @click="signUp" :disabled="disabled"/>
           </div>
         </div>
         <div class="p-col-12 p-mt-3">
@@ -61,7 +61,8 @@ export default {
     return {
       fullName: "",
       email: "",
-      password: ""
+      password: "",
+      disabled: false
     }
   },
   created() {
@@ -85,15 +86,16 @@ export default {
       return isValid
     },
     signUp() {
-
-      //todo: disabled
-
       // validate form
       let isValid = this.validate()
 
       const context = this
       if (isValid) {
-        // register
+
+        // disable button register
+        context.disabled = true
+
+        // register api
         let url = `${context.apiUrl}/register`
         let data = {
           name: this.fullName,
@@ -115,19 +117,33 @@ export default {
         }).catch(function (error) {
           try {
             if (error.response.data.message.includes(context.duplicateMessage)) {
+
               // email is exist
               context.showToast(context.toastSeverityError, context.emailAlreadyTakenMessage, context.toastDefaultLife)
+
             } else {
+
               // unknown error
               context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
             }
           } catch (e) {
+
             // server error
             context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
           }
+        }).then(function (){
+
+          // enable button register
+          context.disabled = false
+
         })
       }else{
+
+        // not valid form
         context.showToast(context.toastSeverityError, context.incompleteFormMessage, context.toastDefaultLife)
+
       }
     }
   }
