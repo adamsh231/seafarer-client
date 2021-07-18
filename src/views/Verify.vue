@@ -25,6 +25,14 @@
           <div class="text-white p-text-right p-text-bold p-mr-3" style="cursor:pointer;" @click="resend">Resend</div>
         </div>
       </div>
+      <div class="p-col-12">
+        <hr class="text-white p-mx-2"/>
+      </div>
+      <div class="p-col-12">
+        <div class="p-d-flex p-jc-center">
+          <DefaultButton class="p-button-danger" style="width: 95%"  label="Sign Out" @click="signOut"/>
+        </div>
+      </div>
     </template>
   </Default>
 </template>
@@ -44,7 +52,9 @@ export default {
     return {
       otp: [],
       otpLength: 4,
-      disabled: true
+      disabled: true,
+      canResend: true,
+      resendWaitTime: 30
     }
   },
   created() {
@@ -110,10 +120,10 @@ export default {
         context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
 
         // redirect to dashboard
-        context.$router.push("/dashboard")
+        context.$router.replace("/dashboard")
 
       }).catch(function (error) {
-        try{
+        try {
           if (error.response.data.message.includes(context.otpMessage)) {
 
             // otp is expired or doesn't match
@@ -125,7 +135,7 @@ export default {
             context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
 
           }
-        }catch (e){
+        } catch (e) {
 
           // server error
           context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
@@ -133,25 +143,57 @@ export default {
         }
       })
     },
-    resend(){
+    resend() {
 
-      // resend api
       const context = this
-      let url = `${context.apiUrl}/verify/email/otp`
-      let data = {}
-      let header = {headers: {Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`}}
 
-      axios.post(url, data, header).then(function (response) {
+      // todo: throttle via backend
+      if (this.canResend) {
 
-        // show toast
-        context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
+        // resend api
+        let url = `${context.apiUrl}/verify/email/otp`
+        let data = {}
+        let header = {headers: {Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`}}
 
-      }).catch(function (error){
+        axios.post(url, data, header).then(function (response) {
 
-        // unknown error
-        context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+          // show toast
+          context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
 
-      })
+        }).catch(function (error) {
+
+          // unknown error
+          context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+        })
+
+        // disable resend
+        if (this.resendWaitTime !== 0) {
+          let interval = setInterval(() => {
+            this.resendWaitTime--
+            if (this.resendWaitTime <= 0) {
+              this.canResend = true
+              this.resendWaitTime = 30
+              clearInterval(interval)
+            }
+          }, 1000)
+        }
+
+        this.canResend = false
+
+      } else {
+
+        // show toast is not ready
+        context.showToast(context.toastSeverityError, `Resend otp is unavailable until, ${this.resendWaitTime}s`, context.toastDefaultLife)
+
+      }
+
+    },
+    signOut(){
+      const context = this
+      context.deleteCookie(context.tokenCookie)
+      context.deleteCookie(context.refreshTokenCookie)
+      context.$router.replace('/')
     }
   }
 }

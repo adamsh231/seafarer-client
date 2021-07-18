@@ -24,7 +24,7 @@
         </div>
         <div class="p-col-12 p-mt-3">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton label="Sign In" @click="signIn()"/>
+            <DefaultButton label="Sign In" @click="signIn" :disabled="disabled"/>
           </div>
         </div>
         <div class="p-col-12 p-mt-3">
@@ -52,20 +52,91 @@ export default {
     return {
       email: "",
       password: "",
+      disabled: false
     }
   },
+  created() {
+      this.noTokenOnlyArea()
+  },
   methods: {
-    signIn() {
-      let toast = this.$toast
-      axios.post('http://localhost:3000/authentication/v1/auth/login', {
-        email: this.email,
-        password: this.password
-      }).then(function (response) {
-        let data = response.data
-        toast.add({severity: 'success', summary: 'Success', detail: data.message, life: 1000})
-      }).catch(function (error) {
-        toast.add({severity: 'error', summary: 'Error', detail: error.message, life: 1000})
+    validate() {
+      //init
+      const invalid = "p-invalid"
+      let field = ["email", "password"]
+      let isValid = true
+
+      // add class invalid
+      field.forEach(value => {
+        if (document.getElementById(value).value === "") {
+          isValid = false
+          document.getElementById(value).classList.add(invalid)
+        }
       })
+
+      return isValid
+    },
+    signIn() {
+      // validate form
+      let isValid = this.validate()
+
+      const context = this
+      if (isValid) {
+
+        // disable button login
+        context.disabled = true
+
+        // login api
+        let url = `${context.apiUrl}/login`
+        let data = {
+          email: this.email,
+          password: this.password
+        }
+        axios.post(url, data).then(function (response) {
+
+          // show toast
+          context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
+
+          // store token
+          context.setCookie(context.tokenCookie, response.data.data[context.tokenCookie])
+          context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
+
+          // redirect to verify
+          context.$router.replace("/dashboard")
+
+        }).catch(function (error) {
+          try {
+            if (error.response.data.message.includes(context.notFoundMessage) || error.response.data.message.includes(context.credentialMessage)) {
+
+              // credential doesn't match
+              context.showToast(context.toastSeverityError, context.credentialIsNotMatchMessage, context.toastDefaultLife)
+
+            } else {
+
+              // unknown error
+              context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+            }
+          } catch (e) {
+
+            // server error
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+          }
+        }).then(function () {
+
+          // enable button login
+          context.disabled = false
+
+        })
+
+      } else {
+
+        // not valid form
+        context.showToast(context.toastSeverityError, context.incompleteFormMessage, context.toastDefaultLife)
+
+      }
+
+
     }
 
   }

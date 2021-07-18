@@ -16,9 +16,13 @@ export default {
 
             otpMessage: "otp",
             duplicateMessage: "duplicate",
+            notFoundMessage: "record not",
+            credentialMessage: "credential",
             verifiedMessage: "already verified",
             notVerifiedMessage: "not verified",
+
             emailAlreadyTakenMessage: "email is already taken",
+            credentialIsNotMatchMessage: "credential is not match",
             incompleteFormMessage: "Please check form condition"
         }
     },
@@ -61,7 +65,7 @@ export default {
                     // will be redirect back to /dashboard
                     // which is root of verified area
                     if (!verifiedOnly) {
-                        context.$router.push('/dashboard')
+                        context.$router.replace('/dashboard')
                     }
 
                 }).catch(function (error) {
@@ -69,20 +73,20 @@ export default {
                         if (error.response.data.message.includes(context.notVerifiedMessage)) {
 
                             // not verified redirect
-                            context.$router.push('/verify')
+                            context.$router.replace('/verify')
 
                         } else {
 
                             // false token redirect
                             context.deleteCookie(context.tokenCookie)
                             context.deleteCookie(context.refreshTokenCookie)
-                            context.$router.push('/')
+                            context.$router.replace('/')
 
                         }
                     } catch (e) {
 
                         // unknown redirect
-                        context.$router.push('/error')
+                        context.$router.replace('/error')
                         context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
 
                     }
@@ -90,7 +94,7 @@ export default {
             } else {
 
                 // redirect direct access without token
-                this.$router.push('/')
+                this.$router.replace('/')
 
             }
         }

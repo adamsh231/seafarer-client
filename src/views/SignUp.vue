@@ -107,12 +107,14 @@ export default {
           // show toast
           context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
 
+          // todo: if possible do not verify directly
+
           // store token
           context.setCookie(context.tokenCookie, response.data.data[context.tokenCookie])
           context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
 
           // redirect to verify
-          context.$router.push("/verify")
+          context.$router.replace("/verify")
 
         }).catch(function (error) {
           try {
@@ -139,6 +141,7 @@ export default {
           context.disabled = false
 
         })
+
       }else{
 
         // not valid form
