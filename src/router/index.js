@@ -8,6 +8,7 @@ import OTPRecover from "../views/recover/OTPRecover";
 import PasswordRecover from "../views/recover/PasswordRecover";
 import MainMenu from "../views/dashboard/MainMenu";
 import Error from "../views/Error";
+import NotFound from "../views/NotFound";
 
 const routes = [
     {
@@ -57,8 +58,8 @@ const routes = [
     },
     {
         path: '/:catchAll(.*)',
-        name: 'HomePage',
-        component: HomePage
+        name: 'NOtFound',
+        component: NotFound
     }
 ]
 

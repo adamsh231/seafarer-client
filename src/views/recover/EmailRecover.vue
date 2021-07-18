@@ -8,14 +8,14 @@
         <div class="p-col-12 p-mt-3">
           <div class="p-d-flex p-jc-center">
             <span class="p-float-label input-span">
-              <InputText id="password" class="input-text" type="text"/>
-              <label for="password">Password</label>
+              <InputText id="email" class="input-text" type="email"/>
+              <label for="email">Email</label>
             </span>
           </div>
         </div>
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton label="Recover" to="/recover/otp"/>
+            <DefaultButton label="Recover"/>
           </div>
         </div>
         <div class="p-col-12 p-mt-3">

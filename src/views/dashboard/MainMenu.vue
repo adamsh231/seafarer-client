@@ -11,17 +11,17 @@
       <div class="p-grid p-jc-center">
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton class="p-mt-3 p-button-info" label="Application For Employment" to="/dashboard"/>
+            <DefaultButton class="p-mt-3 p-button-info" label="Application For Employment"/>
           </div>
         </div>
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton class="p-mt-2 p-button-info" label="Documents" to="/dashboard"/>
+            <DefaultButton class="p-mt-2 p-button-info" label="Documents"/>
           </div>
         </div>
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton class="p-mt-2 p-button-success" label="Status" to="/dashboard"/>
+            <DefaultButton class="p-mt-2 p-button-success" label="Status"/>
           </div>
         </div>
         <div class="p-col-12">
@@ -29,7 +29,7 @@
         </div>
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton class="p-mt-2 p-button-danger" label="Sign Out" to="/sign-in"/>
+            <DefaultButton class="p-mt-2 p-button-danger" label="Sign Out" @click="signOut"/>
           </div>
         </div>
       </div>
@@ -50,6 +50,14 @@ export default {
   },
   created() {
     this.tokenOnlyArea(true)
+  },
+  methods: {
+    signOut() {
+      const context = this
+      context.deleteCookie(context.tokenCookie)
+      context.deleteCookie(context.refreshTokenCookie)
+      context.$router.replace('/')
+    }
   }
 }
 </script>

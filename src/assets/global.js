@@ -75,7 +75,7 @@ export default {
                             // not verified redirect
                             context.$router.replace('/verify')
 
-                        } else {
+                        } else { // todo: catch expired token and use refresh token + backend add endpoint refresh token
 
                             // false token redirect
                             context.deleteCookie(context.tokenCookie)

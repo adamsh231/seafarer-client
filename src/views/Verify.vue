@@ -14,7 +14,7 @@
       </div>
       <div class="p-col-12 p-mt-3">
         <div class="p-d-flex p-jc-center">
-          <DefaultButton label="Submit" style="width: 95%" to="/sign-in" :disabled="disabled" @click="verify"/>
+          <DefaultButton label="Submit" style="width: 95%" :disabled="disabled" @click="verify"/>
         </div>
       </div>
       <div class="p-grid p-mt-3">
