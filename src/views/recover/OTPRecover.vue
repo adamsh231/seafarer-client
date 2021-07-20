@@ -151,6 +151,7 @@ export default {
         // show toast
         context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
 
+        // todo: store token with prefix recover-
         // store token
         context.setCookie(context.tokenCookie, response.data.data[context.tokenCookie])
         context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
