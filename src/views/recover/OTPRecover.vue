@@ -25,6 +25,15 @@
           <div class="text-white p-text-right p-text-bold p-mr-3" style="cursor:pointer;" @click="resend">Resend</div>
         </div>
       </div>
+      <div class="p-col-12">
+        <hr class="text-white p-mx-2"/>
+      </div>
+      <div class="p-col-12" style="cursor: pointer">
+        <div class="p-text-center text-gray p-text-light" @click="$router.push('/recover/email')">
+          <i class="pi pi-arrow-left text-white"/>
+          <span class="text-white p-text-normal"> Return to recover email form </span>
+        </div>
+      </div>
     </template>
   </Default>
 </template>
@@ -32,13 +41,15 @@
 <script>
 import Default from "../../components/Default";
 import DefaultButton from "../../components/DefaultButton";
+import BackButton from "../../components/BackButton";
 import axios from "axios";
 
 export default {
   name: "OTPRecover",
   components: {
     Default,
-    DefaultButton
+    DefaultButton,
+    BackButton
   },
   data() {
     return {
@@ -52,50 +63,8 @@ export default {
   },
   created() {
     this.noTokenOnlyArea()
-
-    // todo: throttle backend + front end
-    this.checkAndSendOTP()
   },
   methods: {
-    checkAndSendOTP(){
-      const context = this
-
-      // login api
-      let url = `${context.apiUrl}/recover/email/otp`
-      let data = {
-        email: this.email
-      }
-      axios.post(url, data).then(function (response) {
-
-        // show toast
-        context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
-
-
-      }).catch(function (error) {
-        try {
-
-          if (error.response.data.message.includes(context.notFoundMessage)) {
-
-            // email not found
-            context.showToast(context.toastSeverityError, context.emailNotFoundMessage, context.toastDefaultLife)
-            context.$router.push('/recover/email')
-
-          } else {
-
-            // unknown error
-            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
-
-          }
-
-        } catch (e) {
-
-          // server error
-          context.$router.replace('/error')
-          context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
-
-        }
-      })
-    },
     validateAndNext(id, event) {
 
       // next and validate nan
@@ -145,16 +114,13 @@ export default {
         otp: this.otp.join(""),
         email: this.email
       }
-      let header = {headers: {Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`}}
-      axios.post(url, data, header).then(function (response) {
+      axios.post(url, data).then(function (response) {
 
         // show toast
         context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
 
-        // todo: store token with prefix recover-
         // store token
-        context.setCookie(context.tokenCookie, response.data.data[context.tokenCookie])
-        context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
+        context.setCookie(context.recoverTokenCookie, response.data.data[context.tokenCookie])
 
         // redirect to change password
         context.$router.replace("/recover/password")
@@ -187,8 +153,43 @@ export default {
       // todo: throttle via backend
       if (this.canResend) {
 
-        // send otp
-        this.checkAndSendOTP()
+        const context = this
+
+        // login api
+        let url = `${context.apiUrl}/recover/email/otp`
+        let data = {
+          email: this.email
+        }
+        axios.post(url, data).then(function (response) {
+
+          // show toast
+          context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
+
+
+        }).catch(function (error) {
+          try {
+
+            if (error.response.data.message.includes(context.notFoundMessage)) {
+
+              // email not found
+              context.showToast(context.toastSeverityError, context.emailNotFoundMessage, context.toastDefaultLife)
+              context.$router.push('/recover/email')
+
+            } else {
+
+              // unknown error
+              context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+            }
+
+          } catch (e) {
+
+            // server error
+            context.$router.replace('/error')
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+          }
+        })
 
         // disable resend
         if (this.resendWaitTime !== 0) {

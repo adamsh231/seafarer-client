@@ -74,8 +74,45 @@ export default {
 
       if (this.validate()) {
 
-        // redirect to recover otp
-        this.$router.push(`/recover/otp/${this.email}`)
+        const context = this
+
+        // login api
+        let url = `${context.apiUrl}/recover/email/otp`
+        let data = {
+          email: this.email
+        }
+        axios.post(url, data).then(function (response) {
+
+          // show toast
+          context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
+
+          // redirect to recover otp
+          context.$router.push(`/recover/otp/${context.email}`)
+
+        }).catch(function (error) {
+          try {
+
+            if (error.response.data.message.includes(context.notFoundMessage)) {
+
+              // email not found
+              context.showToast(context.toastSeverityError, context.emailNotFoundMessage, context.toastDefaultLife)
+              context.$router.push('/recover/email')
+
+            } else {
+
+              // unknown error
+              context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+            }
+
+          } catch (e) {
+
+            // server error
+            context.$router.replace('/error')
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+          }
+        })
 
       } else {
 

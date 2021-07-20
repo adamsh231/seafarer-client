@@ -7,6 +7,7 @@ export default {
 
             tokenCookie: "token",
             refreshTokenCookie: "refresh_token",
+            recoverTokenCookie: "recover_token",
 
             toastSeveritySuccess: "success",
             toastSeverityInfo: "info",
@@ -20,11 +21,13 @@ export default {
             credentialMessage: "credential",
             verifiedMessage: "already verified",
             notVerifiedMessage: "not verified",
+            confirmNotMatchMessage: "confirm password",
 
             emailAlreadyTakenMessage: "email is already taken",
             credentialIsNotMatchMessage: "credential is not match",
             emailNotFoundMessage: "email not found",
-            incompleteFormMessage: "Please check form condition"
+            incompleteFormMessage: "Please check form condition",
+            passwordAndConfirmDoesNotMatchMessage: "password and confirm password doesn't match"
         }
     },
     methods: {
