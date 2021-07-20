@@ -2,7 +2,8 @@
 
   <Default>
     <template v-slot:title>
-      <div class="p-text-center p-text-light text-white p-mt-4" style="font-size: 30px">New Password</div>
+      <BackButton to="/dashboard"/>
+      <div class="p-text-center p-text-light text-white" style="font-size: 30px">New Password</div>
     </template>
     <template v-slot:content>
       <div class="p-grid p-jc-center">

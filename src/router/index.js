@@ -37,7 +37,7 @@ const routes = [
         component: EmailRecover
     },
     {
-        path: '/recover/otp',
+        path: '/recover/otp/:email',
         name: 'OTPRecover',
         component: OTPRecover
     },

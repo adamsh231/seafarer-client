@@ -23,6 +23,7 @@ export default {
 
             emailAlreadyTakenMessage: "email is already taken",
             credentialIsNotMatchMessage: "credential is not match",
+            emailNotFoundMessage: "email not found",
             incompleteFormMessage: "Please check form condition"
         }
     },

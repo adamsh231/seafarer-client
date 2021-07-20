@@ -14,7 +14,7 @@
       </div>
       <div class="p-col-12 p-mt-3">
         <div class="p-d-flex p-jc-center">
-          <DefaultButton id="submit-verify-otp" label="Submit" style="width: 95%" to="/recover/password"/>
+          <DefaultButton label="Submit" style="width: 95%" :disabled="disabled" @click="verify"/>
         </div>
       </div>
       <div class="p-grid p-mt-3">
@@ -22,7 +22,7 @@
           <div class="p-text-center text-gray p-text-light">Not received code?</div>
         </div>
         <div class="p-col-5 p-offset-1">
-          <div class="text-white p-text-right p-text-bold p-mr-3" style="cursor:pointer;">Resend</div>
+          <div class="text-white p-text-right p-text-bold p-mr-3" style="cursor:pointer;" @click="resend">Resend</div>
         </div>
       </div>
     </template>
@@ -32,6 +32,7 @@
 <script>
 import Default from "../../components/Default";
 import DefaultButton from "../../components/DefaultButton";
+import axios from "axios";
 
 export default {
   name: "OTPRecover",
@@ -41,24 +42,174 @@ export default {
   },
   data() {
     return {
-      otp: []
+      email: this.$route.params.email,
+      otp: [],
+      otpLength: 4,
+      disabled: true,
+      canResend: true,
+      resendWaitTime: 30
     }
   },
+  created() {
+    this.noTokenOnlyArea()
+
+    // todo: throttle backend + front end
+    this.checkAndSendOTP()
+  },
   methods: {
+    checkAndSendOTP(){
+      const context = this
+
+      // login api
+      let url = `${context.apiUrl}/recover/email/otp`
+      let data = {
+        email: this.email
+      }
+      axios.post(url, data).then(function (response) {
+
+        // show toast
+        context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
+
+
+      }).catch(function (error) {
+        try {
+
+          if (error.response.data.message.includes(context.notFoundMessage)) {
+
+            // email not found
+            context.showToast(context.toastSeverityError, context.emailNotFoundMessage, context.toastDefaultLife)
+            context.$router.push('/recover/email')
+
+          } else {
+
+            // unknown error
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+          }
+
+        } catch (e) {
+
+          // server error
+          context.$router.replace('/error')
+          context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+        }
+      })
+    },
     validateAndNext(id, event) {
+
+      // next and validate nan
       let currentInput = document.getElementById(event.target.id)
-      let nextInput = ""
       if (event.target.nextSibling !== null) {
-        nextInput = document.getElementById(event.target.nextSibling.id)
-        if (isNaN(currentInput.value)) {
+        let nextInput = document.getElementById(event.target.nextSibling.id)
+        if (isNaN(currentInput.value) || currentInput.value === "") {
+          this.otp[id] = undefined
           currentInput.value = ""
         } else if (currentInput.value !== "") {
           this.otp[id] = currentInput.value
           nextInput.focus()
         }
-      }else{
-        currentInput.blur()
+      } else {
+        if (isNaN(currentInput.value) || currentInput.value === "") {
+          this.otp[id] = undefined
+          currentInput.value = ""
+        } else if (currentInput.value !== "") {
+          this.otp[id] = currentInput.value
+          currentInput.blur()
+        }
       }
+
+      // enable button submit
+      this.enabledButtonSubmit()
+
+    },
+    enabledButtonSubmit() {
+
+      // enable button submit
+      let isEmpty = false
+      for (let i = 0; i < this.otpLength; i++) {
+        if (this.otp[i] === undefined) {
+          isEmpty = true
+          break
+        }
+      }
+      this.disabled = isEmpty
+
+    },
+    verify() {
+
+      // verify api
+      const context = this
+      let url = `${context.apiUrl}/recover/otp`
+      let data = {
+        otp: this.otp.join(""),
+        email: this.email
+      }
+      let header = {headers: {Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`}}
+      axios.post(url, data, header).then(function (response) {
+
+        // show toast
+        context.showToast(context.toastSeveritySuccess, response.data.message, context.toastDefaultLife)
+
+        // store token
+        context.setCookie(context.tokenCookie, response.data.data[context.tokenCookie])
+        context.setCookie(context.refreshTokenCookie, response.data.data[context.refreshTokenCookie])
+
+        // redirect to change password
+        context.$router.replace("/recover/password")
+
+      }).catch(function (error) {
+        try {
+          if (error.response.data.message.includes(context.otpMessage)) {
+
+            // otp is expired or doesn't match
+            context.showToast(context.toastSeverityError, error.response.data.message, context.toastDefaultLife)
+
+          } else {
+
+            // unknown error
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+          }
+        } catch (e) {
+
+          // server error
+          context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+        }
+      })
+    },
+    resend() {
+
+      const context = this
+
+      // todo: throttle via backend
+      if (this.canResend) {
+
+        // send otp
+        this.checkAndSendOTP()
+
+        // disable resend
+        if (this.resendWaitTime !== 0) {
+          let interval = setInterval(() => {
+            this.resendWaitTime--
+            if (this.resendWaitTime <= 0) {
+              this.canResend = true
+              this.resendWaitTime = 30
+              clearInterval(interval)
+            }
+          }, 1000)
+        }
+
+        this.canResend = false
+
+      } else {
+
+        // show toast is not ready
+        context.showToast(context.toastSeverityError, `Resend otp is unavailable until, ${this.resendWaitTime}s`, context.toastDefaultLife)
+
+      }
+
     }
   }
 }
