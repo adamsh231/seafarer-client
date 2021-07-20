@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+
+  seafarer-client:
+    container_name: seafarer-client
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+
