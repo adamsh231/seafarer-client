@@ -9,7 +9,7 @@
         <img src="../assets/logo2.png" class="logo-image p-my-auto">
         <div class="box-divider"></div>
 
-        <Card class="card-authentication" :style="'height: ${card_height}px'">
+        <Card class="card-authentication">
           <template #title>
             <slot name="title"></slot>
           </template>
@@ -40,6 +40,21 @@ export default {
 @media only screen and (max-width: 1200px) {
   .logo-image, .box-divider {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .logo-image, .box-divider {
+    display: none;
+  }
+
+  .card-authentication {
+    margin: 40% 0 !important;
+    width: 350px !important;
+  }
+
+  .vertical-container {
+    display: block;
   }
 }
 
