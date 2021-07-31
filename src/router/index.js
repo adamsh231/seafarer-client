@@ -7,6 +7,7 @@ import EmailRecover from "../views/recover/EmailRecover";
 import OTPRecover from "../views/recover/OTPRecover";
 import PasswordRecover from "../views/recover/PasswordRecover";
 import MainMenu from "../views/dashboard/MainMenu";
+import Documents from "../views/dashboard/Documents";
 import Error from "../views/Error";
 import NotFound from "../views/NotFound";
 
@@ -50,6 +51,11 @@ const routes = [
         path: '/dashboard',
         name: 'MainMenu',
         component: MainMenu
+    },
+    {
+        path: '/documents',
+        name: 'Documents',
+        component: Documents
     },
     {
         path: '/error',

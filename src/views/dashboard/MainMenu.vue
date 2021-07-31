@@ -16,7 +16,7 @@
         </div>
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton class="p-mt-2 p-button-info" label="Documents"/>
+            <DefaultButton class="p-mt-2 p-button-info" label="Documents" @click="$router.push('/documents')"/>
           </div>
         </div>
         <div class="p-col-12">

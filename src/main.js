@@ -19,6 +19,10 @@ import Divider from 'primevue/divider';
 import Password from "primevue/password";
 import ToastService from "primevue/toastservice";
 import Toast from "primevue/toast";
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import Toolbar from 'primevue/toolbar';
+import FileUpload from 'primevue/fileupload';
 
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
@@ -52,6 +56,10 @@ app.component('InputNumber', InputNumber)
 app.component('Divider', Divider)
 app.component('Password', Password)
 app.component('Toast', Toast)
+app.component('DataTable', DataTable)
+app.component('Column', Column)
+app.component('Toolbar', Toolbar)
+app.component('FileUpload', FileUpload)
 // ------------------------------ //
 
 app.mixin(globalMixin)
