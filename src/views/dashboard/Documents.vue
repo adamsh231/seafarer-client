@@ -42,7 +42,7 @@
                 <p class="file-name c-primary p-text-bold">{{ file.name }}</p>
               </div>
               <div class="p-col-3 p-text-center p-my-auto">
-                <Button icon="pi pi-trash" class="p-button-rounded p-button-danger"/>
+                <Button icon="pi pi-trash" class="p-button-rounded p-button-danger" @click="removeImage(file.name)"/>
               </div>
             </div>
           </div>
@@ -72,8 +72,14 @@ export default {
   },
   methods: {
     onUpload(event){
+      console.log(event.files[0])
       this.files.push({name:event.files[0].name})
       this.$refs.fileUpload.remove()
+    },
+    removeImage(name){
+      this.files = this.files.filter(function(value, index, arr){
+        return value.name !== name;
+      })
     }
   }
 }
