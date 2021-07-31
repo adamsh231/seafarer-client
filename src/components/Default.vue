@@ -60,7 +60,7 @@ export default {
   }
 
   .card-authentication {
-    margin: 40% 0 !important;
+    margin: 10% 0 !important;
     width: 400px !important;
   }
 
