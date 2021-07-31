@@ -12,6 +12,7 @@
         <Card class="card-authentication">
           <template #title>
             <slot name="title"></slot>
+            <img src="../assets/logo2.png" class="logo-image p-my-auto">
           </template>
           <template #content>
             <slot name="content"></slot>
@@ -41,6 +42,16 @@ export default {
   .logo-image, .box-divider {
     display: none;
   }
+
+  .card-authentication{
+    .logo-image{
+      width: 150px;
+      height: 150px;
+      margin:  auto;
+      margin-top: 20px !important;
+      display: block !important;
+    }
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -50,7 +61,7 @@ export default {
 
   .card-authentication {
     margin: 40% 0 !important;
-    width: 350px !important;
+    width: 400px !important;
   }
 
   .vertical-container {
@@ -72,6 +83,11 @@ export default {
   margin: 0 5em 0 5em;
   border-radius: 25px;
   width: 420px;
+
+  .logo-image{
+    display: none;
+  }
+
 }
 </style>
 
