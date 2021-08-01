@@ -11,7 +11,12 @@
       <div class="p-grid p-jc-center">
         <div class="p-col-12">
           <div class="p-d-flex p-jc-center">
-            <DefaultButton class="p-mt-3 p-button-info" label="Application For Employment" @click="afe"/>
+            <DefaultButton class="p-mt-3 p-button-info" label="Application For Employment (PDF)" @click="afe"/>
+          </div>
+        </div>
+        <div class="p-col-12">
+          <div class="p-d-flex p-jc-center">
+            <DefaultButton class="p-button-info" label="Application For Employment (FORM)" @click="$router.push('/application-for-employment')"/>
           </div>
         </div>
         <div class="p-col-12">

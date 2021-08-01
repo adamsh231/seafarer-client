@@ -26,6 +26,6 @@ export default {
 }
 
 .p-button-label {
-  font-size: 22px;
+  font-size: 20px;
 }
 </style>

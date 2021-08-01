@@ -23,6 +23,9 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Toolbar from 'primevue/toolbar';
 import FileUpload from 'primevue/fileupload';
+import Calendar from 'primevue/calendar';
+import Checkbox from 'primevue/checkbox';
+import RadioButton from 'primevue/radiobutton';
 
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
@@ -60,6 +63,9 @@ app.component('DataTable', DataTable)
 app.component('Column', Column)
 app.component('Toolbar', Toolbar)
 app.component('FileUpload', FileUpload)
+app.component('Calendar', Calendar)
+app.component('Checkbox', Checkbox)
+app.component('RadioButton', RadioButton)
 // ------------------------------ //
 
 app.mixin(globalMixin)

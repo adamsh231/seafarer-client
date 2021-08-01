@@ -8,6 +8,7 @@ import OTPRecover from "../views/recover/OTPRecover";
 import PasswordRecover from "../views/recover/PasswordRecover";
 import MainMenu from "../views/dashboard/MainMenu";
 import Documents from "../views/dashboard/Documents";
+import ApplicationForEmployment from "../views/dashboard/ApplicationForEmployment";
 import Error from "../views/Error";
 import NotFound from "../views/NotFound";
 
@@ -56,6 +57,11 @@ const routes = [
         path: '/documents',
         name: 'Documents',
         component: Documents
+    },
+    {
+        path: '/application-for-employment',
+        name: 'ApplicationForEmployment',
+        component: ApplicationForEmployment
     },
     {
         path: '/error',

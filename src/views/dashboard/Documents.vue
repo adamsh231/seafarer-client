@@ -55,13 +55,10 @@
 </template>
 
 <script>
-import BackButton from "../../components/BackButton";
 
 export default {
   name: "Documents",
-  components: {
-    BackButton
-  },
+  components: {},
   data() {
     return {
       id: 0,
