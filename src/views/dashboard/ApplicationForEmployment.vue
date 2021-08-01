@@ -289,7 +289,8 @@
             <p class="p-mr-3"></p>
             <RadioButton id="status3" name="status" value="Divorced" v-model="status"/>
             <label for="status3">Divorced</label>
-            <p class="p-mr-3"></p>
+          </div>
+          <div class="p-field-radiobutton p-my-auto">
             <RadioButton id="status4" name="status" value="Widowed" v-model="status"/>
             <label for="status4">Widowed</label>
             <p class="p-mr-3"></p>
@@ -317,7 +318,7 @@
 
       <div class="p-grid p-my-0">
         <div class="p-col p-text-center">
-          <h3 class="p-text-bold p-mb-0">Person 1</h3>
+          <h3 class="p-text-bold p-my-0">Person 1</h3>
         </div>
       </div>
 
