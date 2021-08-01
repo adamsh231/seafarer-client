@@ -48,7 +48,7 @@ export default {
       width: 150px;
       height: 150px;
       margin:  auto;
-      margin-top: 20px !important;
+      margin-top: 10% !important;
       display: block !important;
     }
   }
