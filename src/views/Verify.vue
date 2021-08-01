@@ -105,7 +105,7 @@ export default {
 
       // verify api
       const context = this
-      let url = `${context.apiUrl}/verify/otp`
+      let url = `${context.apiAuthUrl}/verify/otp`
       let data = {
         otp: this.otp.join("")
       }
@@ -151,7 +151,7 @@ export default {
       if (this.canResend) {
 
         // resend api
-        let url = `${context.apiUrl}/verify/email/otp`
+        let url = `${context.apiAuthUrl}/verify/email/otp`
         let data = {}
         let header = {headers: {Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`}}
 

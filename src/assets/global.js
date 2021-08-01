@@ -3,7 +3,8 @@ import axios from "axios";
 export default {
     data() {
         return {
-            apiUrl: "http://localhost:3000/authentication/v1/auth",
+            apiDocUrl: "http://localhost:3000/public/Application%20For%20Employment-FIX.pdf",
+            apiAuthUrl: "http://localhost:3000/authentication/v1/auth",
 
             tokenCookie: "token",
             refreshTokenCookie: "refresh_token",
@@ -55,7 +56,7 @@ export default {
 
                 // current user api
                 const context = this
-                let url = `${context.apiUrl}/verified/current`
+                let url = `${context.apiAuthUrl}/verified/current`
                 let header = {
                     headers: {
                         Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,

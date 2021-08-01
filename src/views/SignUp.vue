@@ -96,7 +96,7 @@ export default {
         context.disabled = true
 
         // register api
-        let url = `${context.apiUrl}/register`
+        let url = `${context.apiAuthUrl}/register`
         let data = {
           name: this.fullName,
           email: this.email,
