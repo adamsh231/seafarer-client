@@ -7,6 +7,7 @@ pipeline{
 
     environment{
         SERVER_CREDENTIAL = credentials('qword-development-root-password')
+        SSH_COMMAND = 'sshpass -p "${SERVER_CREDENTIAL}" ssh root@103.102.153.44'
     }
 
     stages{
@@ -18,21 +19,22 @@ pipeline{
             }
         }
 
+        // -------------------------------- Master ----------------------------------- //
         stage("build-master"){
-            when {
-                branch 'master'
-            }
             environment{
                 BRANCH = 'master'
                 GO_DIR = 'cd /home/production/front-end/seafarer-client; ls -l;'
-                SERVER_CREDENTIAL = credentials('qword-development-root-password')
+            }
+            when {
+                branch '${BRANCH}'
             }
             steps{
-                sh  'sshpass -p "${SERVER_CREDENTIAL}" ssh root@103.102.153.44 "${GO_DIR} git pull origin ${BRANCH}; exit;"'
-                sh  'sshpass -p "${SERVER_CREDENTIAL}" ssh root@103.102.153.44 "${GO_DIR} docker-compose up -d --build; exit;"'
-                sh  'sshpass -p "${SERVER_CREDENTIAL}" ssh root@103.102.153.44 "docker image prune -f; exit;"'
+                sh  '${SSH_COMMAND} "${GO_DIR} git pull origin ${BRANCH};"'
+                sh  '${SSH_COMMAND} "${GO_DIR} docker-compose up -d --build;"'
+                sh  '${SSH_COMMAND} "docker image prune -f;"'
             }
         }
+        // --------------------------------------------------------------------------- //
 
     }
 
