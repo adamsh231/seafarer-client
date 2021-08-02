@@ -10,9 +10,8 @@ pipeline{
             steps{
                 sh 'apt-get update'
                 sh 'apt install sshpass'
-                sh 'sshpass'
-                // sh 'ssh -o StrictHostKeyChecking=no root@103.102.153.44'
-                echo "git pull origin master"
+                sh 'sshpass -p dayung231 ssh root@103.102.153.44'
+                sh 'pwd'
             }
         }
         stage("build"){
