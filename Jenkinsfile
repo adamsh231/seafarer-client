@@ -6,7 +6,7 @@ pipeline{
     }
 
     environment{
-        SERVER_CREDENTIAL = credential('qword-development-root-password')
+        SERVER_CREDENTIAL = credentials('qword-development-root-password')
     }
 
     stages{
@@ -18,13 +18,13 @@ pipeline{
         }
         stage("build"){
             steps{
-                sh  'sshpass -p "${SECRET}" ssh root@103.102.153.44 "cd /home/production/front-end/seafarer-client; ls -l; git pull origin master; exit;"'
-                sh  'sshpass -p "${SECRET}" ssh root@103.102.153.44 "cd /home/production/front-end/seafarer-client; ls -l; docker-compose up -d --build; exit;"'
+                sh  'sshpass -p "${SERVER_CREDENTIAL}" ssh root@103.102.153.44 "cd /home/production/front-end/seafarer-client; ls -l; git pull origin master; exit;"'
+                sh  'sshpass -p "${SERVER_CREDENTIAL}" ssh root@103.102.153.44 "cd /home/production/front-end/seafarer-client; ls -l; docker-compose up -d --build; exit;"'
             }
         }
         stage("after"){
             steps{
-                sh  'sshpass -p "${SECRET}" ssh root@103.102.153.44 "docker image prune -f; exit;"'
+                sh  'sshpass -p "${SERVER_CREDENTIAL}" ssh root@103.102.153.44 "docker image prune -f; exit;"'
             }
         }
     }
