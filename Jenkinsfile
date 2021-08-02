@@ -1,12 +1,8 @@
 pipeline{
     agent any
 
-    triggers {
-        githubPush()
-    }
-
     stages{
-        stage("build-1"){
+        stage("build"){
             steps{
                 echo "========executing build-1========"
             }
