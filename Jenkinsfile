@@ -12,9 +12,7 @@ pipeline{
     stages{
         stage("testing"){
             when {
-                not {
-                    branch 'master'
-                }
+                branch 'master'
             }
             steps{
                 echo 'jembut breccele'
