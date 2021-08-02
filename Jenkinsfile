@@ -7,6 +7,7 @@ pipeline{
 
     environment{
         SERVER_CREDENTIAL = credentials('qword-development-root-password')
+        PROJECT_LOCATION = 'front-end/seafarer-client'
         SSH_COMMAND = 'sshpass -p "${SERVER_CREDENTIAL}" ssh root@103.102.153.44'
     }
 
@@ -21,12 +22,12 @@ pipeline{
 
         // -------------------------------- Master ----------------------------------- //
         stage("build-master"){
+            when {
+                branch 'master'
+            }
             environment{
                 BRANCH = 'master'
-                GO_DIR = 'cd /home/production/front-end/seafarer-client; ls -l;'
-            }
-            when {
-                branch '${BRANCH}'
+                GO_DIR = 'cd /home/production/${PROJECT_NAME}; ls -l;'
             }
             steps{
                 sh  '${SSH_COMMAND} "${GO_DIR} git pull origin ${BRANCH};"'
