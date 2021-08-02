@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent any
 
     triggers {
@@ -6,23 +6,34 @@ pipeline{
     }
 
     stages{
-        stage("prepare"){
-            steps{
+
+        stage("prepare") {
+            steps {
                 sh 'apt-get update'
                 sh 'apt install sshpass'
-                sh 'sshpass -p dayung231 ssh root@103.102.153.44'
+                script {
+                    sh  """
+                            sshpass -p dayung231 ssh root@103.102.153.44 
+                            << EOF 
+                                pwd
+                            EOF
+                        """
+                }
                 sh 'pwd'
             }
         }
-        stage("build"){
-            steps{
+
+        stage("build") {
+            steps {
                 echo "docker-compose up -d --build"
             }
         }
-        stage("after"){
-            steps{
+
+        stage("after") {
+            steps {
                 echo "docker image prune"
             }
         }
+
     }
 }
