@@ -10,6 +10,16 @@ pipeline{
     }
 
     stages{
+        stage("testing"){
+            when {
+                not {
+                    branch 'master'
+                }
+            }
+            steps{
+                echo 'jembut breccele'
+            }
+        }
         stage("prepare"){
             steps{
                 sh 'apt-get update'
