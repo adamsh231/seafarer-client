@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage("build"){
             steps{
-                echo "========executing build-1========"
+                echo "========executing kimochi========"
             }
         }
         stage("build-2"){
