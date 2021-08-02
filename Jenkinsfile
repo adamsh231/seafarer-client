@@ -14,13 +14,6 @@ pipeline{
 
     stages{
 
-        stage("prepare"){
-            steps{
-                sh 'apt-get update'
-                sh 'apt install sshpass'
-            }
-        }
-
         // -------------------------------- Master ----------------------------------- //
         stage("build-master"){
             when {
