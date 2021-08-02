@@ -6,8 +6,9 @@ pipeline{
     }
 
     environment{
+        SSH_PASS = credentials('qword-development-root-password')
         PROJECT_LOCATION = 'front-end/seafarer-client'
-        SSH_COMMAND = 'sshpass -p ${credentials("qword-development-root-password")} ssh root@103.102.153.44'
+        SSH_COMMAND = 'ssh root@103.102.153.44'
     }
 
     stages{
@@ -29,9 +30,9 @@ pipeline{
                 GO_DIR = 'cd /home/production/${PROJECT_NAME}; ls -l;'
             }
             steps{
-                sh  '${SSH_COMMAND} "${GO_DIR} git pull origin ${BRANCH};"'
-                sh  '${SSH_COMMAND} "${GO_DIR} docker-compose up -d --build;"'
-                sh  '${SSH_COMMAND} "docker image prune -f;"'
+                sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${GO_DIR} git pull origin ${BRANCH};"'
+                sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${GO_DIR} docker-compose up -d --build;"'
+                sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "docker image prune -f;"'
             }
         }
         // --------------------------------------------------------------------------- //
