@@ -19,7 +19,7 @@ pipeline{
         }
         stage("after"){
             steps{
-                sh  'sshpass -p dayung231 ssh root@103.102.153.44 "docker image prune; exit;"'
+                sh  'sshpass -p dayung231 ssh root@103.102.153.44 "docker image prune -f; exit;"'
             }
         }
     }
