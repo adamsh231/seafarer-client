@@ -6,7 +6,7 @@ pipeline{
     }
 
     stages{
-        stage("build-1"){
+        stage("build"){
             steps{
                 echo "========executing build========"
             }
