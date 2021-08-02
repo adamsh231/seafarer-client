@@ -8,7 +8,8 @@ pipeline{
     stages{
         stage("prepare"){
             steps{
-                sh 'ssh -o StrictHostKeyChecking=no root@103.102.153.44'
+                sh 'sshpass'
+                // sh 'ssh -o StrictHostKeyChecking=no root@103.102.153.44'
                 echo "git pull origin master"
             }
         }
