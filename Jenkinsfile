@@ -6,14 +6,14 @@ pipeline{
     }
 
     stages{
-        stage("build"){
+        stage("build-1"){
             steps{
-                echo "========executing build========"
+                echo "========executing build-1========"
             }
         }
         stage("build-2"){
             steps{
-                echo "========executing build========"
+                echo "========executing build-2========"
             }
         }
         stage("deploy"){
