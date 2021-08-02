@@ -10,23 +10,16 @@ pipeline{
             steps{
                 sh 'apt-get update'
                 sh 'apt install sshpass'
-                sh  """
-                        sshpass -p dayung231 ssh root@103.102.153.44 
-                        '
-                            cd /home/production/front-end/seafarer-client \
-                            ls -l
-                        '
-                    """
             }
         }
         stage("build"){
             steps{
-                echo "docker-compose up -d --build"
+                sh  'sshpass -p dayung231 ssh root@103.102.153.44 "cd /home/production/front-end/seafarer-client; ls -l; docker-compose up -d --build; exit;"'
             }
         }
         stage("after"){
             steps{
-                echo "docker image prune"
+                sh  'sshpass -p dayung231 ssh root@103.102.153.44 "docker image prune; exit;"'
             }
         }
     }
