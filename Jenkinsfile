@@ -13,8 +13,8 @@ pipeline{
                 sh  """
                         sshpass -p dayung231 ssh root@103.102.153.44 
                         '
-                            cd /home/production/front-end/seafarer-client;
-                            ls -l;
+                            cd /home/production/front-end/seafarer-client \
+                            ls -l
                         '
                     """
             }
