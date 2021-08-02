@@ -6,9 +6,8 @@ pipeline{
     }
 
     environment{
-        SERVER_CREDENTIAL = credentials('qword-development-root-password')
         PROJECT_LOCATION = 'front-end/seafarer-client'
-        SSH_COMMAND = 'sshpass -p '+ credentials('qword-development-root-password') +' ssh root@103.102.153.44'
+        SSH_COMMAND = 'sshpass -p "${credentials('qword-development-root-password')}" ssh root@103.102.153.44'
     }
 
     stages{
