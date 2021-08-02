@@ -10,7 +10,7 @@ pipeline{
             steps{
                 sh 'apt-get update'
                 sh 'apt install sshpass'
-                sh 'sshpass -p dayung231 ssh root@103.102.153.44 "pwd; cd /home/production; ls -l;"'
+                sh 'sshpass -p dayung231 ssh root@103.102.153.44 "cd /home/production/front-end/seafarer-client; ls -l;"'
                 sh 'pwd'
             }
         }
