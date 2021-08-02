@@ -3,7 +3,13 @@ pipeline{
     agent any
 
     stages{
-        stage("build"){
+        stage("build-1"){
+            steps{
+                echo "========executing build========"
+            }
+        }
+
+        stage("build-2"){
             steps{
                 echo "========executing build========"
             }
