@@ -6,24 +6,19 @@ pipeline{
     }
 
     stages{
+        stage("prepare"){
+            steps{
+                echo "git pull origin master"
+            }
+        }
         stage("build"){
             steps{
-                echo "========executing kimochi========"
+                echo "docker-compose up -d --build"
             }
         }
-        stage("build-2"){
+        stage("after"){
             steps{
-                echo "========executing build-2========"
-            }
-        }
-        stage("deploy"){
-            steps{
-                echo "========executing deploy========"
-            }
-        }
-        stage("prune"){
-            steps{
-                echo "========executing prune========"
+                echo "docker image prune"
             }
         }
     }
