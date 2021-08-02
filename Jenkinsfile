@@ -27,7 +27,7 @@ pipeline{
             }
             environment{
                 BRANCH = 'master'
-                GO_DIR = 'cd /home/production/${PROJECT_NAME}; ls -l;'
+                GO_DIR = 'cd /home/production/${PROJECT_LOCATION}; ls -l;'
             }
             steps{
                 sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${GO_DIR} git pull origin ${BRANCH};"'
