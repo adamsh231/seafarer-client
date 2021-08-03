@@ -496,6 +496,70 @@
 
     </div>
 
+    <!--  Documentation Information  -->
+    <div class="sub-section p-shadow-4 p-my-4">
+
+      <div class="p-grid p-my-0">
+        <div class="p-col p-text-center">
+          <h3 class="head-text p-my-4">Documentation Information</h3>
+          <hr/>
+          <div class="p-col p-text-center">
+            <h3 class="head-text p-text-light p-mt-4 p-mb-0">Passport Information</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-grid p-m-auto">
+        <div class="p-col-12 p-md-3">
+          <p class="form-text p-text-right">Passport Number</p>
+        </div>
+        <div class="p-col-12 p-md-9 p-my-auto">
+          <InputText type="text" class="p-inputtext-sm"/>
+        </div>
+      </div>
+
+      <div class="p-grid p-m-auto">
+        <div class="p-col-12 p-md-3">
+          <p class="form-text p-text-right">Passport Nationality</p>
+        </div>
+        <div class="p-col-12 p-md-9 p-my-auto">
+          <InputText type="text" class="p-inputtext-sm"/>
+        </div>
+      </div>
+
+      <div class="p-grid p-m-auto">
+        <div class="p-col-12 p-md-3">
+          <p class="form-text p-text-right">Date of Issue (mm/dd/yyyy)</p>
+        </div>
+        <div class="p-col-12 p-md-9 p-my-auto">
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="passportIssue" class="p-inputtext-sm"
+                    dateFormat="mm/dd/yy"/>
+        </div>
+      </div>
+
+      <div class="p-grid p-m-auto">
+        <div class="p-col-12 p-md-3">
+          <p class="form-text p-text-right">Place of Issue</p>
+        </div>
+        <div class="p-col-12 p-md-9 p-my-auto">
+          <InputText type="text" class="p-inputtext-sm"/>
+        </div>
+      </div>
+
+      <div class="p-grid p-m-auto">
+        <div class="p-col-12 p-md-3">
+          <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+        </div>
+        <div class="p-col-12 p-md-9 p-my-auto">
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="passportExp" class="p-inputtext-sm"
+                    dateFormat="mm/dd/yy"/>
+        </div>
+      </div>
+
+      <div class="boxes"></div>
+
+    </div>
+
     <div class="boxes"></div>
 
   </div>
@@ -514,7 +578,9 @@ export default {
       tattoo: "",
       tattooShowed: "",
       status: "",
-      worker: ""
+      worker: "",
+      passportIssue: "",
+      passportExp: ""
     }
   },
   created() {
