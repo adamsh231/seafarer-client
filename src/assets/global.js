@@ -3,8 +3,8 @@ import axios from "axios";
 export default {
     data() {
         return {
-            apiDocUrl: "http://localhost:3000/public/Application%20For%20Employment-FIX.pdf",
-            apiAuthUrl: "http://localhost:3000/authentication/v1/auth",
+            apiDocUrl: "https://api.seafarindo.online/public/Application%20For%20Employment-FIX.pdf",
+            apiAuthUrl: "https://api.seafarindo.online/authentication/v1/auth",
 
             tokenCookie: "token",
             refreshTokenCookie: "refresh_token",
