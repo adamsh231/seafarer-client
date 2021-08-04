@@ -27,10 +27,10 @@ pipeline{
                 BRANCH_DIR = 'cd /home/production'
             }
             steps{
-                sh  'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=markdown -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Building *${PROJECT_NAME}* on branch *${BRANCH}*"'
-                sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${BRANCH_DIR}${PROJECT_LOCATION}; ${LIST}; git pull origin ${BRANCH};"'
-                sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${BRANCH_DIR}${PROJECT_LOCATION}; ${LIST}; docker-compose up -d --build;"'
-                sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "docker image prune -f;"'
+                sh  'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=markdown -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="${GIT_COMMITTER_EMAIL} has started building, *${PROJECT_NAME}* on branch *${BRANCH}*"'
+                // sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${BRANCH_DIR}${PROJECT_LOCATION}; ${LIST}; git pull origin ${BRANCH};"'
+                // sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${BRANCH_DIR}${PROJECT_LOCATION}; ${LIST}; docker-compose up -d --build;"'
+                // sh  'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "docker image prune -f;"'
             }
             post{
                 success{
