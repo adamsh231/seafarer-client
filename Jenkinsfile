@@ -23,7 +23,6 @@ pipeline{
                 branch 'master'
             }
             environment{
-                BRANCH = 'master'
                 BRANCH_DIR = 'cd /home/production'
             }
             steps{
