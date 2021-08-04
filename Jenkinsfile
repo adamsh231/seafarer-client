@@ -11,7 +11,7 @@ pipeline{
         TELEGRAM_GROUP_CHAT_ID = credentials('telegram-group-chat-id')
         SSH_PASS = credentials('qword-development-root-password')
         SSH_COMMAND = 'ssh root@103.102.153.44'
-        AUTHOR_NAME = bat (
+        AUTHOR_NAME = sh (
             script: "git show -s --format='%%an' HEAD",
             returnStdout: true
         ).split('\r\n')[2].trim()
