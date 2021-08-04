@@ -15,7 +15,7 @@ pipeline{
             script: "git show -s --pretty=%an",
             returnStdout: true
         ).trim()
-        EMOJI_START = '\xF0\x9F\x9A\x80'
+        EMOJI_START = '\\xF0\\x9F\\x9A\\x80'
     }
 
     stages{
