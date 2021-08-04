@@ -29,10 +29,6 @@ pipeline{
             script: "git show -s --pretty=%an",
             returnStdout: true
         ).trim()
-        GIT_COMMIT_MESSAGE = sh (
-            script: "git log --format=%B -n 1",
-            returnStdout: true
-        ).trim()
     }
 
     stages{
@@ -54,10 +50,10 @@ pipeline{
                 )
             }
             steps{
-                sh '${TELEGRAM_COMMAND} text="Build started by <b>${AUTHOR_NAME}</b>%0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME}%0A%0A${GIT_COMMIT_MESSAGE} - ${GIT_COMMIT}%0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
-                // sh '${SSH_COMMAND} "${GO_TO_DIR} git pull origin ${GIT_BRANCH};"'
-                // sh '${SSH_COMMAND} "${GO_TO_DIR} docker-compose up -d --build;"'
-                // sh '${SSH_COMMAND} "docker image prune -f;"'
+                sh '${TELEGRAM_COMMAND} text="Build started by <b>${AUTHOR_NAME}</b>%0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME}%0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
+                sh '${SSH_COMMAND} "${GO_TO_DIR} git pull origin ${GIT_BRANCH};"'
+                sh '${SSH_COMMAND} "${GO_TO_DIR} docker-compose up -d --build;"'
+                sh '${SSH_COMMAND} "docker image prune -f;"'
             }
             post{
                 success{
