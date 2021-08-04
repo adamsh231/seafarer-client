@@ -31,10 +31,10 @@ pipeline{
             }
             post{
                 success{
-                    sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} Success!"'
+                    sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} Build Success!"'
                 }
                 failure{
-                    sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} Failure!"'
+                    sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} Build Failure!"'
                 }
             }
         }
