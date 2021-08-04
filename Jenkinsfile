@@ -33,10 +33,10 @@ pipeline{
             }
             post{
                 success{
-                    sh  'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=markdown -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="*${PROJECT_NAME}* on branch *${BRANCH}* is up!"'
+                    sh  'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=markdown -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="*${PROJECT_NAME}* on branch *${GIT_BRANCH}* is up!"'
                 }
                 failure{
-                    sh  'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=markdown -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Failed build *${PROJECT_NAME}* on branch *${BRANCH}*"'
+                    sh  'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=markdown -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Failed build *${PROJECT_NAME}* on branch *${GIT_BRANCH}*"'
                 }
             }
         }
