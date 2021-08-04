@@ -556,6 +556,155 @@
         </div>
       </div>
 
+      <div class="p-grid p-my-0">
+        <div class="p-col p-text-center">
+          <div class="p-col p-text-center">
+            <h3 class="head-text p-text-light p-mt-4 p-mb-0">Crew Visas</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">C1/D</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="c1d1" name="worker" value="Yes" v-model="c1d"/>
+              <label for="c1d1">Yes</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="c1d2" name="worker" value="No" v-model="c1d"/>
+              <label for="c1d2">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="c1dExpiration" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Visa No</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Type</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">C1</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="c11" name="worker" value="Yes" v-model="c1"/>
+              <label for="c11">Yes</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="c12" name="worker" value="No" v-model="c1"/>
+              <label for="c12">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="c1Expiration" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Visa No</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Type</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">D</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="c11" name="worker" value="Yes" v-model="d"/>
+              <label for="d1">Yes</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="c12" name="worker" value="No" v-model="d"/>
+              <label for="d2">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="dExpiration" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Visa No</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Type</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+      </div>
+
       <div class="boxes"></div>
 
     </div>
@@ -580,7 +729,13 @@ export default {
       status: "",
       worker: "",
       passportIssue: "",
-      passportExp: ""
+      passportExp: "",
+      c1d: "",
+      c1dExpiration: "",
+      c1: "",
+      c1Expiration: "",
+      d: "",
+      dExpiration: "",
     }
   },
   created() {
@@ -591,6 +746,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.container-table {
+  border: 1px dashed #152b53;
+  border-radius: 25px;
+  width: 95%;
+  margin: auto;
+}
 
 .boxes {
   height: 10px;
