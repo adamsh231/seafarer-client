@@ -14,7 +14,7 @@ pipeline{
         AUTHOR_NAME = sh (
             script: "git show -s --pretty=%an",
             returnStdout: true
-        ).split('\r\n')[2].trim()
+        ).trim()
     }
 
     stages{
