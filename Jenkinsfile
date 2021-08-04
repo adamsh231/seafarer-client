@@ -28,7 +28,7 @@ pipeline{
                 BRANCH_DIR = 'cd /home/production'
             }
             steps{
-                sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Build started by <b>${AUTHOR_NAME}</b> \xF0\x9F\x9A\x80 %0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} %0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
+                sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Build started by <b>${AUTHOR_NAME}</b> \'\xF0\x9F\x9A\x80\' %0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} %0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
                 // sh 'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${BRANCH_DIR}${PROJECT_LOCATION}; ls -l; git pull origin ${GIT_BRANCH};"'
                 // sh 'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${BRANCH_DIR}${PROJECT_LOCATION}; ls -l; docker-compose up -d --build;"'
                 // sh 'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "docker image prune -f;"'
