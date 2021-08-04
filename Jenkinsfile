@@ -27,7 +27,7 @@ pipeline{
             environment{
                 BRANCH_DIR = 'cd /home/production'
                 PROJECT_LOCATION_FIX = sh (
-                    script: "echo cd /home/production${PROJECT_LOCATION}",
+                    script: "echo -n 'cd /home/production${PROJECT_LOCATION}'",
                     returnStdout: true
                 )
             }
