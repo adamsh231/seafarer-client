@@ -15,7 +15,6 @@ pipeline{
             script: "git show -s --pretty=%an",
             returnStdout: true
         ).trim()
-        EMOJI_START = "echo -e '\\U0001F514'"
     }
 
     stages{
@@ -27,19 +26,23 @@ pipeline{
             }
             environment{
                 BRANCH_DIR = 'cd /home/production'
+                PROJECT_LOCATION_FIX = sh (
+                    script: "echo cd /home/production${PROJECT_LOCATION}",
+                    returnStdout: true
+                )
             }
             steps{
-                sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Build started by <b>${AUTHOR_NAME}</b> ${EMOJI_START} %0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} %0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
-                // sh 'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${BRANCH_DIR}${PROJECT_LOCATION}; ls -l; git pull origin ${GIT_BRANCH};"'
+                sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Build started by <b>${AUTHOR_NAME}</b>%0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME}%0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
+                sh 'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${PROJECT_LOCATION_FIX}; ls -l; git pull origin ${GIT_BRANCH};"'
                 // sh 'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "${BRANCH_DIR}${PROJECT_LOCATION}; ls -l; docker-compose up -d --build;"'
                 // sh 'sshpass -p ${SSH_PASS} ${SSH_COMMAND} "docker image prune -f;"'
             }
             post{
                 success{
-                    sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Successfully build %0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} %0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
+                    sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Successfully build%0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME}%0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
                 }
                 failure{
-                    sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Failed to build %0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME} %0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
+                    sh 'curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?parse_mode=html -d chat_id=${TELEGRAM_GROUP_CHAT_ID} -d text="Failed to build%0A%0A<b>${JOB_NAME}</b> - ${BUILD_DISPLAY_NAME}%0A%0A(<a href=\'${BUILD_URL}console\'>Open</a>)"'
                 }
             }
         }
