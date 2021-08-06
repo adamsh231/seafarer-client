@@ -36,7 +36,7 @@
         <div v-for="file in files" class="p-col-12 p-sm-12 p-md-12 p-lg-6">
           <div class="p-mt-1 p-mx-3 p-shadow-3 file">
             <div class="p-grid">
-              <div class="p-col-3 p-text-center p-my-auto">
+              <div class="p-col-3 p-text-center p-my-auto" @click="download(file['url_key'])">
                 <i class="pi pi-file-pdf" style="fontSize: 2rem"></i>
               </div>
               <div class="p-col-6">
@@ -74,6 +74,9 @@ export default {
     this.getAllFiles()
   },
   methods: {
+    download(url){
+      window.open(url);
+    },
     onUpload(event) {
 
       // get file data
