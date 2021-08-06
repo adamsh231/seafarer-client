@@ -1924,6 +1924,296 @@
 
     </div>
 
+    <!--  Languages  -->
+    <div class="sub-section p-shadow-4 p-my-4">
+
+      <div class="p-grid p-my-0">
+        <div class="p-col p-text-center">
+          <h3 class="head-text p-my-4">Languages</h3>
+          <hr/>
+        </div>
+      </div>
+
+      <Fieldset legend="English (mandatory)" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Speak</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="epls1" name="epls" value="Beginner" v-model="epls"/>
+              <label for="epls1">Beginner</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="epls2" name="epls" value="Intermediate" v-model="epls"/>
+              <label for="epls2">Intermediate</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="epls3" name="epls" value="Fluent" v-model="epls"/>
+              <label for="epls3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Write</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="eplw1" name="eplw" value="Beginner" v-model="eplw"/>
+              <label for="eplw1">Beginner</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="eplw2" name="eplw" value="Intermediate" v-model="eplw"/>
+              <label for="eplw2">Intermediate</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="eplw3" name="eplw" value="Fluent" v-model="eplw"/>
+              <label for="eplw3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="Spanish" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Speak</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="spls0" name="spls" value="N/A" v-model="spls"/>
+              <label for="spls0">N/A</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="spls1" name="spls" value="Beginner" v-model="spls"/>
+              <label for="spls1">Beginner</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="spls2" name="spls" value="Intermediate" v-model="spls"/>
+              <label for="spls2">Intermediate</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="spls3" name="spls" value="Fluent" v-model="spls"/>
+              <label for="spls3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Write</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="splw0" name="splw" value="N/A" v-model="splw"/>
+              <label for="splw0">N/A</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="splw1" name="splw" value="Beginner" v-model="splw"/>
+              <label for="splw1">Beginner</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="splw2" name="splw" value="Intermediate" v-model="splw"/>
+              <label for="splw2">Intermediate</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="splw3" name="splw" value="Fluent" v-model="splw"/>
+              <label for="splw3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="French" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Speak</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="fpls0" name="fpls" value="N/A" v-model="fpls"/>
+              <label for="fpls0">N/A</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="fpls1" name="fpls" value="Beginner" v-model="fpls"/>
+              <label for="fpls1">Beginner</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="fpls2" name="fpls" value="Intermediate" v-model="fpls"/>
+              <label for="fpls2">Intermediate</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="fpls3" name="fpls" value="Fluent" v-model="fpls"/>
+              <label for="fpls3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Write</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="fplw0" name="fplw" value="N/A" v-model="fplw"/>
+              <label for="fplw0">N/A</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="fplw1" name="fplw" value="Beginner" v-model="fplw"/>
+              <label for="fplw1">Beginner</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="fplw2" name="fplw" value="Intermediate" v-model="fplw"/>
+              <label for="fplw2">Intermediate</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="fplw3" name="fplw" value="Fluent" v-model="fplw"/>
+              <label for="fplw3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="German" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Speak</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="gpls0" name="gpls" value="N/A" v-model="gpls"/>
+              <label for="gpls0">N/A</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="gpls1" name="gpls" value="Beginner" v-model="gpls"/>
+              <label for="gpls1">Beginner</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="gpls2" name="gpls" value="Intermediate" v-model="gpls"/>
+              <label for="gpls2">Intermediate</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="gpls3" name="gpls" value="Fluent" v-model="gpls"/>
+              <label for="gpls3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Write</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="gplw0" name="gplw" value="N/A" v-model="gplw"/>
+              <label for="gplw0">N/A</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="gplw1" name="gplw" value="Beginner" v-model="gplw"/>
+              <label for="gplw1">Beginner</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="gplw2" name="gplw" value="Intermediate" v-model="gplw"/>
+              <label for="gplw2">Intermediate</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="gplw3" name="gplw" value="Fluent" v-model="gplw"/>
+              <label for="gplw3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="Other 1" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Speak</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="o1pls1" name="o1pls" value="Beginner" v-model="o1pls"/>
+              <label for="o1pls1">Beginner</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="o1pls2" name="o1pls" value="Intermediate" v-model="o1pls"/>
+              <label for="o1pls2">Intermediate</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="o1pls3" name="o1pls" value="Fluent" v-model="o1pls"/>
+              <label for="o1pls3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Write</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="o1plw1" name="o1plw" value="Beginner" v-model="o1plw"/>
+              <label for="o1plw1">Beginner</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="o1plw2" name="o1plw" value="Intermediate" v-model="o1plw"/>
+              <label for="o1plw2">Intermediate</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="o1plw3" name="o1plw" value="Fluent" v-model="o1plw"/>
+              <label for="o1plw3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="Other 2" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Speak</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="o2pls1" name="o2pls" value="Beginner" v-model="o2pls"/>
+              <label for="o2pls1">Beginner</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="o2pls2" name="o2pls" value="Intermediate" v-model="o2pls"/>
+              <label for="o2pls2">Intermediate</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="o2pls3" name="o2pls" value="Fluent" v-model="o2pls"/>
+              <label for="o2pls3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Proficiency Level Write</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto small-text">
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="o2plw1" name="o2plw" value="Beginner" v-model="o2plw"/>
+              <label for="o2plw1">Beginner</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="o2plw2" name="o2plw" value="Intermediate" v-model="o2plw"/>
+              <label for="o2plw2">Intermediate</label>
+            </div>
+            <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="o2plw3" name="o2plw" value="Fluent" v-model="o2plw"/>
+              <label for="o2plw3">Fluent</label>
+            </div>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <div class="boxes"></div>
+
+    </div>
+
+    <div class="p-text-center">
+      <hr>
+      <Button style="width: 95%"  label="Save" class="p-button-lg p-my-4"/>
+    </div>
+
+
     <div class="boxes"></div>
 
   </div>
@@ -1998,7 +2288,19 @@ export default {
       eduappFrom: "",
       eduappTo: "",
       eduotherFrom: "",
-      eduotherTo: ""
+      eduotherTo: "",
+      epls: "",
+      eplw: "",
+      spls: "",
+      splw: "",
+      fpls: "",
+      fplw: "",
+      gpls: "",
+      gplw: "",
+      o1pls: "",
+      o1plw: "",
+      o2pls: "",
+      o2plw: "",
     }
   },
   created() {
@@ -2009,6 +2311,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.small-text {
+  font-size: 14px;
+}
 
 .container-table {
   background-color: #efedef;
