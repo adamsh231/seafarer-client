@@ -25,7 +25,8 @@
           <h3 class="c-primary pc">Upload New File</h3>
         </template>
         <template #right>
-          <FileUpload ref="fileUpload" mode="basic" :auto="true" :custom-upload="true" @uploader="onUpload" chooseLabel="Upload"/>
+          <FileUpload ref="fileUpload" mode="basic" :auto="true" :custom-upload="true" @uploader="onUpload" chooseLabel="Upload" :disabled="isUploading"/>
+          <ProgressSpinner style="width:40px;height:50px" class="p-ml-2" stroke-width="5" v-show="isUploading"/>
         </template>
       </Toolbar>
     </div>
@@ -56,26 +57,89 @@
 
 <script>
 
+import axios from "axios";
+
 export default {
   name: "Documents",
   components: {},
   data() {
     return {
       id: 0,
-      files: []
+      files: [],
+      isUploading: false
     }
   },
   created() {
     this.tokenOnlyArea(true)
+    this.getAllFiles()
   },
   methods: {
-    onUpload(event){
-      this.files.push({id: this.id, name:event.files[0].name})
-      this.id += 1
+    onUpload(event) {
+
+      // get file data
+      let formData = new FormData()
+      formData.append("file", event.files[0]);
+
+      // init header
+      const context = this
+      let url = `${context.apiStorageUrl}/file`
+      let header = {
+        headers: {
+          'Authorization': `Bearer ${context.getCookie(context.tokenCookie)}`,
+          'Content-Type': 'multipart/form-data',
+        }
+      }
+
+      // loading
+      this.isUploading = true
+
+      // upload file
+      axios.post(url, formData, header).then(function (response) {
+
+        // reload
+        context.showToast(context.toastSeveritySuccess, context.toastSeveritySuccess, context.toastDefaultLife)
+        context.getAllFiles()
+
+      }).catch(function (error) {
+
+        // show error
+        context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+      }).finally(function(){
+
+        // loading
+        context.isUploading = false
+
+      })
+
+      // remove image
       this.$refs.fileUpload.remove()
+
     },
-    removeImage(id){
-      this.files = this.files.filter(function(value, index, arr){
+    getAllFiles() {
+
+      // current user api
+      const context = this
+      let url = `${context.apiStorageUrl}/file`
+      let header = {
+        headers: {
+          Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,
+        }
+      }
+      axios.get(url, header).then(function (response) {
+
+        // set data
+        context.files = response.data.data
+
+      }).catch(function (error) {
+
+        // show error
+        context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+      })
+    },
+    removeImage(id) {
+      this.files = this.files.filter(function (value, index, arr) {
         return value.id !== id;
       })
     }

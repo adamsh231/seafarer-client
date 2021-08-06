@@ -86,7 +86,7 @@ export default {
         context.disabled = true
 
         // login api
-        let url = `${context.apiAuthUrl}/login`
+        let url = `${context.apiAuthUrl}/auth/login`
         let data = {
           email: this.email,
           password: this.password

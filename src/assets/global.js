@@ -4,7 +4,8 @@ export default {
     data() {
         return {
             apiDocUrl: "https://api.seafarindo.online/public/Application%20For%20Employment-FIX.pdf",
-            apiAuthUrl: "https://api.seafarindo.online/authentication/v1/auth",
+            apiAuthUrl: "https://api.seafarindo.online/authentication/v1",
+            apiStorageUrl: "https://api.seafarindo.online/storage/v1",
 
             tokenCookie: "token",
             refreshTokenCookie: "refresh_token",
@@ -56,7 +57,7 @@ export default {
 
                 // current user api
                 const context = this
-                let url = `${context.apiAuthUrl}/verified/current`
+                let url = `${context.apiAuthUrl}/auth/verified/current`
                 let header = {
                     headers: {
                         Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,

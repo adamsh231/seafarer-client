@@ -27,6 +27,7 @@ import Calendar from 'primevue/calendar';
 import Checkbox from 'primevue/checkbox';
 import RadioButton from 'primevue/radiobutton';
 import Fieldset from 'primevue/fieldset';
+import ProgressSpinner from 'primevue/progressspinner';
 
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
@@ -68,6 +69,7 @@ app.component('Calendar', Calendar)
 app.component('Checkbox', Checkbox)
 app.component('RadioButton', RadioButton)
 app.component('Fieldset', Fieldset)
+app.component('ProgressSpinner', ProgressSpinner)
 // ------------------------------ //
 
 app.mixin(globalMixin)

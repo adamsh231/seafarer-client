@@ -77,7 +77,7 @@ export default {
     getCurrentUser() {
       // current user api
       const context = this
-      let url = `${context.apiAuthUrl}/verified/current`
+      let url = `${context.apiAuthUrl}/auth/verified/current`
       let header = {
         headers: {
           Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,
