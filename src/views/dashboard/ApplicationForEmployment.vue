@@ -1377,6 +1377,553 @@
 
     </div>
 
+    <!--  Employment History  -->
+    <div class="sub-section p-shadow-4 p-my-4">
+
+      <div class="p-grid p-my-0">
+        <div class="p-col p-text-center">
+          <h3 class="head-text p-my-4">Employment History</h3>
+          <hr/>
+          <div class="p-col p-text-center">
+            <h3 class="head-text p-text-light p-mt-4 p-mb-0">List most recent employer first</h3>
+          </div>
+        </div>
+      </div>
+
+      <Fieldset legend="Employer 1" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Employer/Company Name</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Company Phone No</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Position Held</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Supervisor Name</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer1From" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer1To" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Starting Salary in USD</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="number" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Ending Salary in USD</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="number" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-mx-auto p-my-0">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Reason for Leaving</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="Employer 2" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Employer/Company Name</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Company Phone No</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Position Held</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Supervisor Name</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer2From" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer2To" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Starting Salary in USD</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="number" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Ending Salary in USD</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="number" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-mx-auto p-my-0">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Reason for Leaving</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="Employer 3" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Employer/Company Name</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Company Phone No</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Position Held</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Supervisor Name</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer3From" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer3To" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Starting Salary in USD</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="number" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Ending Salary in USD</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="number" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-mx-auto p-my-0">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Reason for Leaving</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <div class="boxes"></div>
+
+    </div>
+
+    <!--  Education  -->
+    <div class="sub-section p-shadow-4 p-my-4">
+
+      <div class="p-grid p-my-0">
+        <div class="p-col p-text-center">
+          <h3 class="head-text p-my-4">Education</h3>
+          <hr/>
+        </div>
+      </div>
+
+      <Fieldset legend="High School" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">School Name and City</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">No. of Years</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduhsFrom" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduhsTo" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-mx-auto p-my-0">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Major/Diploma</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="College" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">School Name and City</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">No. of Years</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="educolFrom" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="educolTo" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-mx-auto p-my-0">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Major/Diploma</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="University" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">School Name and City</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">No. of Years</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduuniFrom" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduuniTo" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-mx-auto p-my-0">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Major/Diploma</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="Apprenticeship" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">School Name and City</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">No. of Years</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduappFrom" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduappTo" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-mx-auto p-my-0">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Major/Diploma</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <Fieldset legend="Other" :toggleable="true" :collapsed="true" class="container-table">
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">School Name and City</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">No. of Years</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduotherFrom" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-m-auto">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduotherTo" class="p-inputtext-sm"
+                      dateFormat="mm/dd/yy"/>
+          </div>
+        </div>
+
+        <div class="p-grid p-mx-auto p-my-0">
+          <div class="p-col-12 p-md-3">
+            <p class="form-text p-text-right">Major/Diploma</p>
+          </div>
+          <div class="p-col-12 p-md-9 p-my-auto">
+            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          </div>
+        </div>
+
+      </Fieldset>
+
+      <div class="boxes"></div>
+
+    </div>
+
     <div class="boxes"></div>
 
   </div>
@@ -1435,7 +1982,23 @@ export default {
       scExpiration: "",
       oco1: "",
       oco1Issue: "",
-      oco1Expiration: ""
+      oco1Expiration: "",
+      employer1From: "",
+      employer1To: "",
+      employer2From: "",
+      employer2To: "",
+      employer3From: "",
+      employer3To: "",
+      eduhsFrom: "",
+      eduhsTo: "",
+      educolFrom: "",
+      educolTo: "",
+      eduuniFrom: "",
+      eduuniTo: "",
+      eduappFrom: "",
+      eduappTo: "",
+      eduotherFrom: "",
+      eduotherTo: ""
     }
   },
   created() {
