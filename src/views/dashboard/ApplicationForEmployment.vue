@@ -1285,6 +1285,9 @@
           </div>
           <div class="p-col-12 p-md-9 p-my-auto">
             <div class="p-field-radiobutton p-my-auto">
+              <RadioButton id="sc0" name="worker" value="N/A" v-model="sc"/>
+              <label for="sc0">N/A</label>
+              <p class="p-mr-3"></p>
               <RadioButton id="sc1" name="worker" value="Yes" v-model="sc"/>
               <label for="sc1">Yes</label>
               <p class="p-mr-3"></p>
@@ -1333,10 +1336,13 @@
           </div>
           <div class="p-col-12 p-md-9 p-my-auto">
             <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="sc1" name="worker" value="Yes" v-model="oco1"/>
+              <RadioButton id="oco10" name="oco1" value="N/A" v-model="oco1"/>
+              <label for="oco10">N/A</label>
+              <p class="p-mr-3"></p>
+              <RadioButton id="sc1" name="oco1" value="Yes" v-model="oco1"/>
               <label for="oco11">Yes</label>
               <p class="p-mr-3"></p>
-              <RadioButton id="sc2" name="worker" value="No" v-model="oco1"/>
+              <RadioButton id="sc2" name="oco1" value="No" v-model="oco1"/>
               <label for="oco11">No</label>
             </div>
           </div>
