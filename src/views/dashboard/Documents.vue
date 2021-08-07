@@ -25,8 +25,8 @@
           <h3 class="c-primary pc">Upload New Document</h3>
         </template>
         <template #right>
-          <Button :icon="`pi ${isUploading ? 'pi-spin' : ''} pi-refresh`" class="p-mr-3 p-button-rounded p-button-outlined" @click="getAllFiles"
-                  :disabled="isUploading"/>
+          <Button ref="refresh" :icon="`pi ${isUploading ? 'pi-spin' : ''} pi-refresh`" class="p-mr-3 p-button-rounded p-button-outlined"
+                  @click="getAllFiles" :disabled="isUploading"/>
           <FileUpload ref="fileUpload" mode="basic" :auto="true" :custom-upload="true" @uploader="onUpload" chooseLabel="Upload"
                       :disabled="isUploading"/>
         </template>
@@ -210,7 +210,9 @@ export default {
       })
 
       // loading
-      this.isUploading = false
+      setTimeout(() => {
+        this.isUploading = false
+      }, 1000)
 
     },
     removeImage(id) {
