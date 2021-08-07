@@ -28,6 +28,8 @@ import Checkbox from 'primevue/checkbox';
 import RadioButton from 'primevue/radiobutton';
 import Fieldset from 'primevue/fieldset';
 import ProgressSpinner from 'primevue/progressspinner';
+import ConfirmDialog from 'primevue/confirmdialog';
+import ConfirmationService from 'primevue/confirmationservice';
 
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
@@ -53,6 +55,7 @@ app.use(VueAxios, axios)
 // --------- Prime Vue ---------- //
 app.use(PrimeVue)
 app.use(ToastService)
+app.use(ConfirmationService);
 
 app.component('Card', Card)
 app.component('Button', Button)
@@ -70,6 +73,7 @@ app.component('Checkbox', Checkbox)
 app.component('RadioButton', RadioButton)
 app.component('Fieldset', Fieldset)
 app.component('ProgressSpinner', ProgressSpinner)
+app.component('ConfirmDialog', ConfirmDialog)
 // ------------------------------ //
 
 app.mixin(globalMixin)

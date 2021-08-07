@@ -1,5 +1,7 @@
 <template>
 
+  <ConfirmDialog></ConfirmDialog>
+
   <div class="p-shadow-24 container p-mx-auto p-mt-5">
 
     <div class="p-grid p-mb-0 pc" style="cursor: pointer">
@@ -57,7 +59,7 @@
         </Column>
         <Column style="width: 6rem">
           <template #body="slotProps">
-            <Button icon="pi pi-trash" class="p-button-rounded p-button-danger" @click="removeImage(slotProps.data.id)"/>
+            <Button icon="pi pi-trash" class="p-button-rounded p-button-danger" @click="removeImage(slotProps.data.id, slotProps.data.name)"/>
           </template>
         </Column>
       </DataTable>
@@ -215,10 +217,39 @@ export default {
       }, 1000)
 
     },
-    removeImage(id) {
-      this.files = this.files.filter(function (value, index, arr) {
-        return value.id !== id;
-      })
+    removeImage(id, name) {
+
+      // init header
+      const context = this
+      let url = `${context.apiStorageUrl}/file/${id}`
+      let header = {
+        headers: {
+          Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,
+        }
+      }
+
+      // confirm dialog
+      this.$confirm.require({
+        message: `Delete ${name} ?`,
+        header: 'Delete Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        acceptClass: 'p-button-danger',
+        accept: () => {
+          // get all files
+          axios.delete(url, header).then(function (response) {
+
+            context.showToast(context.toastSeveritySuccess, context.toastSeveritySuccess, context.toastDefaultLife)
+            context.getAllFiles()
+
+          }).catch(function (error) {
+
+            // show error
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+          })
+        }
+      });
+
     }
   }
 }
