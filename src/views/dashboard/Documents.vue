@@ -2,7 +2,7 @@
 
   <div class="p-shadow-24 container p-mx-auto p-mt-5">
 
-    <div class="p-grid p-mb-0 pc">
+    <div class="p-grid p-mb-0 pc" style="cursor: pointer">
       <div class="p-col">
         <img src="../../assets/logo2.png" class="logo-image p-ml-5 p-mt-4" @click="$router.push('/dashboard')">
       </div>
@@ -12,7 +12,7 @@
       <div class="p-col"></div>
     </div>
 
-    <div class="p-text-center mobile p-d-none">
+    <div class="p-text-center mobile p-d-none" style="cursor: pointer">
       <img src="../../assets/logo2.png" class="logo-image p-mt-4" @click="$router.push('/dashboard')">
       <h1 class="c-primary p-my-1">Documents</h1>
     </div>

@@ -1146,10 +1146,12 @@ export default {
         // show error
         context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
 
-      })
+      }).finally(function (){
 
-      // reload
-      this.getData()
+        // reload
+        context.getData()
+
+      })
 
     },
     getData(){
