@@ -119,6 +119,7 @@ export default {
 
       if (this.page >= this.lastPage) {
         this.page = this.lastPage
+        this.getAllFiles()
       }
     },
     prevButton() {
