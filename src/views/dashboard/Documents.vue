@@ -114,22 +114,21 @@ export default {
     disabledPageButton() {
       this.isPrevDisabled = this.page <= 1
       this.isNextDisabled = this.page >= this.lastPage
-
-      console.log(this.page)
-      console.log(this.lastPage)
-      console.log(this.isPrevDisabled)
-      console.log(this.isNextDisabled)
     },
     prevButton() {
       if (this.page > 1) {
         this.page--
         this.getAllFiles()
+      } else {
+        this.page = 1
       }
     },
     nextButton() {
       if (this.page < this.lastPage) {
         this.page++
         this.getAllFiles()
+      } else {
+        this.page = this.lastPage
       }
     },
     download(url) {
@@ -193,8 +192,6 @@ export default {
 
       // get all files
       axios.get(url, header).then(function (response) {
-
-        console.log(response.data)
 
         // set data
         context.files = response.data.data
