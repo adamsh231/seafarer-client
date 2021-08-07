@@ -23,7 +23,7 @@
           <p class="form-text p-text-right">Last Name</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['personal_information']['last_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -32,7 +32,7 @@
           <p class="form-text p-text-right">First Name</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['personal_information']['first_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -41,7 +41,7 @@
           <p class="form-text p-text-right">Middle Name(s)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['personal_information']['middle_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -50,7 +50,8 @@
           <p class="form-text p-text-right">Date of Birth (mm/dd/yyyy)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="birthDate" class="p-inputtext-sm"
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="afe['personal_information']['date_of_birth']"
+                    class="p-inputtext-sm"
                     dateFormat="mm/dd/yy"/>
         </div>
       </div>
@@ -60,7 +61,7 @@
           <p class="form-text p-text-right">Birth Place (city)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['personal_information']['birth_place']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -69,7 +70,7 @@
           <p class="form-text p-text-right">Country of Birth</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['personal_information']['country_of_birth']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -78,7 +79,7 @@
           <p class="form-text p-text-right">Nationality</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['personal_information']['nationality']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -88,10 +89,10 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="gender1" name="gender" value="Male" v-model="gender"/>
+            <RadioButton id="gender1" name="gender" value="Male" v-model="afe['personal_information']['gender']"/>
             <label for="gender1">Male</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="gender2" name="gender" value="Female" v-model="gender"/>
+            <RadioButton id="gender2" name="gender" value="Female" v-model="afe['personal_information']['gender']"/>
             <label for="gender2">Female</label>
           </div>
         </div>
@@ -102,7 +103,7 @@
           <p class="form-text p-text-right">Hair Color</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['personal_information']['hair_color']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -111,7 +112,7 @@
           <p class="form-text p-text-right">Weight (kg)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="number" class="p-inputtext-sm"/>
+          <InputText v-model="afe['personal_information']['weight']" type="number" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -120,7 +121,7 @@
           <p class="form-text p-text-right">Height (cm)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="number" class="p-inputtext-sm"/>
+          <InputText v-model="afe['personal_information']['height']" type="number" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -130,10 +131,10 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="tattoo1" name="tattoo" value="Yes" v-model="tattoo"/>
+            <RadioButton id="tattoo1" name="tattoo" :value="true" v-model="afe['personal_information']['has_tattoo']"/>
             <label for="tattoo1">Yes</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="tattoo2" name="tattoo" value="No" v-model="tattoo"/>
+            <RadioButton id="tattoo2" name="tattoo" :value="false" v-model="afe['personal_information']['has_tattoo']"/>
             <label for="tattoo2">No</label>
           </div>
         </div>
@@ -145,10 +146,10 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="tattooShowed1" name="tattoo" value="Yes" v-model="tattooShowed"/>
+            <RadioButton id="tattooShowed1" name="tattoo" :value="true" v-model="afe['personal_information']['is_tattoo_visible']"/>
             <label for="tattooShowed1">Yes</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="tattooShowed2" name="tattoo" value="No" v-model="tattooShowed"/>
+            <RadioButton id="tattooShowed2" name="tattoo" :value="false" v-model="afe['personal_information']['is_tattoo_visible']"/>
             <label for="tattooShowed2">No</label>
           </div>
         </div>
@@ -179,7 +180,7 @@
           <p class="form-text p-text-right">Street 1</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['contact_information']['street_1']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -188,7 +189,7 @@
           <p class="form-text p-text-right">Street 2</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['contact_information']['street_2']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -197,7 +198,7 @@
           <p class="form-text p-text-right">City</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['contact_information']['city']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -206,7 +207,7 @@
           <p class="form-text p-text-right">State/Province</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['contact_information']['state']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -215,7 +216,7 @@
           <p class="form-text p-text-right">Zip/Postal Code:</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="number" class="p-inputtext-sm"/>
+          <InputText v-model="afe['contact_information']['zip']" type="number" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -224,7 +225,7 @@
           <p class="form-text p-text-right">Country</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['contact_information']['country']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -239,7 +240,7 @@
           <p class="form-text p-text-right">E-mail Address</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['contact_information']['email']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -248,7 +249,7 @@
           <p class="form-text p-text-right">Home Phone</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['contact_information']['home_phone']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -257,7 +258,7 @@
           <p class="form-text p-text-right">Mobile Phone</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['contact_information']['mobile_phone']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -281,20 +282,20 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="status1" name="status" value="Single" v-model="status"/>
+            <RadioButton id="status1" name="status" value="Single" v-model="afe['dependant_information']['marital_status']"/>
             <label for="status1">Single</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="status2" name="status" value="Married" v-model="status"/>
+            <RadioButton id="status2" name="status" value="Married" v-model="afe['dependant_information']['marital_status']"/>
             <label for="status2">Married</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="status3" name="status" value="Divorced" v-model="status"/>
+            <RadioButton id="status3" name="status" value="Divorced" v-model="afe['dependant_information']['marital_status']"/>
             <label for="status3">Divorced</label>
           </div>
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="status4" name="status" value="Widowed" v-model="status"/>
+            <RadioButton id="status4" name="status" value="Widowed" v-model="afe['dependant_information']['marital_status']"/>
             <label for="status4">Widowed</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="status5" name="status" value="Other" v-model="status"/>
+            <RadioButton id="status5" name="status" value="Other" v-model="afe['dependant_information']['marital_status']"/>
             <label for="status5">Other</label>
           </div>
         </div>
@@ -305,7 +306,7 @@
           <p class="form-text p-text-right">Number of children under 18 years of age?</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['dependant_information']['number_of_children_under_18']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -327,7 +328,7 @@
           <p class="form-text p-text-right">Last Name</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['dependant_information']['persons'][0]['last_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -336,7 +337,7 @@
           <p class="form-text p-text-right">First Name</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['dependant_information']['persons'][0]['first_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -345,7 +346,7 @@
           <p class="form-text p-text-right">Middle Name(s)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['dependant_information']['persons'][0]['middle_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -354,7 +355,7 @@
           <p class="form-text p-text-right">E-mail Address</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['dependant_information']['persons'][0]['email']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -363,7 +364,7 @@
           <p class="form-text p-text-right">Home Phone</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['dependant_information']['persons'][0]['home_phone']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -372,7 +373,7 @@
           <p class="form-text p-text-right">Mobile Phone</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['dependant_information']['persons'][0]['mobile_phone']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -387,7 +388,7 @@
           <p class="form-text p-text-right">Last Name</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['dependant_information']['persons'][1]['last_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -396,7 +397,7 @@
           <p class="form-text p-text-right">First Name</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['dependant_information']['persons'][1]['first_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -405,7 +406,7 @@
           <p class="form-text p-text-right">Middle Name(s)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['dependant_information']['persons'][1]['middle_name']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -414,7 +415,7 @@
           <p class="form-text p-text-right">E-mail Address</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['dependant_information']['persons'][1]['email']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -423,7 +424,7 @@
           <p class="form-text p-text-right">Home Phone</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['dependant_information']['persons'][1]['home_phone']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -432,7 +433,7 @@
           <p class="form-text p-text-right">Mobile Phone</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['dependant_information']['persons'][1]['mobile_phone']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -455,7 +456,7 @@
           <p class="form-text p-text-right">Position Desired</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['position_desired']['position_desired']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -464,7 +465,7 @@
           <p class="form-text p-text-right">Salary Desired (USD)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="number" class="p-inputtext-sm"/>
+          <InputText v-model="afe['position_desired']['salary_desired']" type="number" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -474,10 +475,10 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="worker1" name="worker" value="Yes" v-model="worker"/>
+            <RadioButton id="worker1" name="worker" :value="true" v-model="afe['position_desired']['has_cruise_ship']"/>
             <label for="worker1">Yes</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="worker2" name="worker" value="No" v-model="worker"/>
+            <RadioButton id="worker2" name="worker" :value="false" v-model="afe['position_desired']['has_cruise_ship']"/>
             <label for="worker2">No</label>
           </div>
         </div>
@@ -488,7 +489,7 @@
           <p class="form-text p-text-right">If yes, list last company</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
+          <InputText v-model="afe['position_desired']['list_last_company']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -514,7 +515,7 @@
           <p class="form-text p-text-right">Passport Number</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['documentation_information']['passport_number']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -523,7 +524,7 @@
           <p class="form-text p-text-right">Passport Nationality</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['documentation_information']['passport_nationality']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -532,7 +533,8 @@
           <p class="form-text p-text-right">Date of Issue (mm/dd/yyyy)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="passportIssue" class="p-inputtext-sm"
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="afe['documentation_information']['date_of_issue']"
+                    class="p-inputtext-sm"
                     dateFormat="mm/dd/yy"/>
         </div>
       </div>
@@ -542,7 +544,7 @@
           <p class="form-text p-text-right">Place of Issue</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText type="text" class="p-inputtext-sm"/>
+          <InputText v-model="afe['documentation_information']['place_of_issue']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -551,7 +553,8 @@
           <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="passportExp" class="p-inputtext-sm"
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+                    v-model="afe['documentation_information']['date_of_expiration']" class="p-inputtext-sm"
                     dateFormat="mm/dd/yy"/>
         </div>
       </div>
@@ -572,10 +575,10 @@
           </div>
           <div class="p-col-12 p-md-9 p-my-auto">
             <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="c1d1" name="worker" value="Yes" v-model="c1d"/>
+              <RadioButton id="c1d1" name="worker" :value="true" v-model="afe['documentation_information']['crew_visas'][0]['yes_or_no']"/>
               <label for="c1d1">Yes</label>
               <p class="p-mr-3"></p>
-              <RadioButton id="c1d2" name="worker" value="No" v-model="c1d"/>
+              <RadioButton id="c1d2" name="worker" :value="false" v-model="afe['documentation_information']['crew_visas'][0]['yes_or_no']"/>
               <label for="c1d2">No</label>
             </div>
           </div>
@@ -2216,7 +2219,7 @@
 
     <div class="p-text-center">
       <hr>
-      <Button style="width: 95%"  label="Save" class="p-button-lg p-my-4"/>
+      <Button style="width: 95%" label="Save" class="p-button-lg p-my-4"/>
     </div>
 
 
@@ -2233,80 +2236,18 @@ export default {
   components: {},
   data() {
     return {
-      birthDate: "",
-      gender: "",
-      tattoo: "",
-      tattooShowed: "",
-      status: "",
-      worker: "",
-      passportIssue: "",
-      passportExp: "",
-      c1d: "",
-      c1dExpiration: "",
-      c1: "",
-      c1Expiration: "",
-      d: "",
-      dExpiration: "",
-      schengen: "",
-      schengenExpiration: "",
-      other1: "",
-      other1Expiration: "",
-      other2: "",
-      other2Expiration: "",
-      efa: "",
-      efaExpiration: "",
-      fpff: "",
-      fpffExpiration: "",
-      pssr: "",
-      pssrExpiration: "",
-      pst: "",
-      pstExpiration: "",
-      cmps: "",
-      cmpsExpiration: "",
-      cmhb: "",
-      cmhbExpiration: "",
-      sa: "",
-      saExpiration: "",
-      national: "",
-      nationalExpiration: "",
-      fs1: "",
-      fs1Expiration: "",
-      fs2: "",
-      fs2Expiration: "",
-      sc: "",
-      scIssue: "",
-      scExpiration: "",
-      oco1: "",
-      oco1Issue: "",
-      oco1Expiration: "",
-      employer1From: "",
-      employer1To: "",
-      employer2From: "",
-      employer2To: "",
-      employer3From: "",
-      employer3To: "",
-      eduhsFrom: "",
-      eduhsTo: "",
-      educolFrom: "",
-      educolTo: "",
-      eduuniFrom: "",
-      eduuniTo: "",
-      eduappFrom: "",
-      eduappTo: "",
-      eduotherFrom: "",
-      eduotherTo: "",
-      epls: "",
-      eplw: "",
-      spls: "",
-      splw: "",
-      fpls: "",
-      fplw: "",
-      gpls: "",
-      gplw: "",
-      o1pls: "",
-      o1plw: "",
-      o2pls: "",
-      o2plw: "",
+      afe: {
+        "personal_information": {},
+        "contact_information": {},
+        "dependant_information": {"persons": [{"last_name": ""}, {"last_name": ""}]},
+        "position_desired": {},
+        "documentation_information": {
+          "crew_visas": [{"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}],
+          "stcw_certification": [{"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}],
+          "seamans_book": [{"type": ""}, {"type": ""}, {"type": ""}],
+          "other_certificates": [{"type": ""}, {"type": ""}]
+        }
+      },
     }
   },
   created() {
