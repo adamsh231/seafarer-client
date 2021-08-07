@@ -22,33 +22,63 @@
     <div class="p-mt-4 p-mx-3 p-mb-2">
       <Toolbar>
         <template #left>
-          <h3 class="c-primary pc">Upload New File</h3>
+          <h3 class="c-primary pc">Upload New Document</h3>
         </template>
         <template #right>
-          <FileUpload ref="fileUpload" mode="basic" :auto="true" :custom-upload="true" @uploader="onUpload" chooseLabel="Upload" :disabled="isUploading"/>
-          <ProgressSpinner style="width:40px;height:50px" class="p-ml-2" stroke-width="5" v-show="isUploading"/>
+          <Button :icon="`pi ${isUploading ? 'pi-spin' : ''} pi-refresh`" class="p-mr-3 p-button-rounded p-button-outlined" @click="getAllFiles"
+                  :disabled="isUploading"/>
+          <FileUpload ref="fileUpload" mode="basic" :auto="true" :custom-upload="true" @uploader="onUpload" chooseLabel="Upload"
+                      :disabled="isUploading"/>
         </template>
       </Toolbar>
     </div>
 
-    <div class="scroll p-mb-5">
-      <div class="p-grid p-my-0">
-        <div v-for="file in files" class="p-col-12 p-sm-12 p-md-12 p-lg-6">
-          <div class="p-mt-1 p-mx-3 p-shadow-3 file">
-            <div class="p-grid">
-              <div class="p-col-3 p-text-center p-my-auto" @click="download(file['url_key'])">
-                <i class="pi pi-file-pdf" style="fontSize: 2rem"></i>
-              </div>
-              <div class="p-col-6">
-                <p class="file-name c-primary p-text-bold">{{ file.name }}</p>
-              </div>
-              <div class="p-col-3 p-text-center p-my-auto">
-                <Button icon="pi pi-trash" class="p-button-rounded p-button-danger" @click="removeImage(file.id)"/>
-              </div>
-            </div>
+    <div class="p-mt-4 p-mx-3 p-mb-2">
+      <DataTable :value="files" responsiveLayout="stack" breakpoint="600px">
+        <template #header>
+          <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+            <h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Documents</h5>
+            <span class="p-input-icon-left">
+            <i class="pi pi-search"/>
+            <InputText style="width: 210px" v-model="search" @input="getAllFiles" placeholder="Search file by name"/>
+          </span>
           </div>
+        </template>
+
+        <Column style="width: 8rem" class="p-text-center">
+          <template #body="slotProps">
+            <i class="pi pi-file-pdf" @click="download(slotProps.data['url_key'])" style="fontSize: 2rem"></i>
+          </template>
+        </Column>
+        <Column header="Name">
+          <template #body="slotProps">
+            <p class="file-name">{{ slotProps.data.name }}</p>
+          </template>
+        </Column>
+        <Column style="width: 6rem">
+          <template #body="slotProps">
+            <Button icon="pi pi-trash" class="p-button-rounded p-button-danger" @click="removeImage(slotProps.data.id)"/>
+          </template>
+        </Column>
+      </DataTable>
+
+      <div class="p-paginator p-component p-paginator-bottom">
+        <div :class="`p-paginator-prev p-paginator-element p-link ${isPrevDisabled ? 'p-disabled' : ''}`" @click="prevButton">
+          <span class="p-paginator-icon pi pi-angle-left"></span>
+        </div>
+        <span class="p-paginator-pages">
+          <button class="p-paginator-page p-paginator-element p-link p-highlight p-disabled" type="button">{{ page }}</button>
+          <p class="p-paginator-page p-paginator-element p-link p-disabled">of</p>
+          <button class="p-paginator-page p-paginator-element p-link p-disabled" type="button">{{ lastPage }}</button>
+        </span>
+        <div :class="`p-paginator-next p-paginator-element p-link ${isNextDisabled ? 'p-disabled' : ''}`" @click="nextButton">
+          <span class="p-paginator-icon pi pi-angle-right"></span>
         </div>
       </div>
+
+
+      <div style="height: 20px"></div>
+
     </div>
 
   </div>
@@ -66,7 +96,14 @@ export default {
     return {
       id: 0,
       files: [],
-      isUploading: false
+      isUploading: false,
+      search: "",
+      limit: 5,
+      total: 0,
+      lastPage: 1,
+      page: 1,
+      isPrevDisabled: false,
+      isNextDisabled: false
     }
   },
   created() {
@@ -74,7 +111,28 @@ export default {
     this.getAllFiles()
   },
   methods: {
-    download(url){
+    disabledPageButton() {
+      this.isPrevDisabled = this.page <= 1
+      this.isNextDisabled = this.page >= this.lastPage
+
+      console.log(this.page)
+      console.log(this.lastPage)
+      console.log(this.isPrevDisabled)
+      console.log(this.isNextDisabled)
+    },
+    prevButton() {
+      if (this.page > 1) {
+        this.page--
+        this.getAllFiles()
+      }
+    },
+    nextButton() {
+      if (this.page < this.lastPage) {
+        this.page++
+        this.getAllFiles()
+      }
+    },
+    download(url) {
       window.open(url);
     },
     onUpload(event) {
@@ -108,7 +166,7 @@ export default {
         // show error
         context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
 
-      }).finally(function(){
+      }).finally(function () {
 
         // loading
         context.isUploading = false
@@ -121,25 +179,42 @@ export default {
     },
     getAllFiles() {
 
-      // current user api
+      // init header
       const context = this
-      let url = `${context.apiStorageUrl}/file`
+      let url = `${context.apiStorageUrl}/file?search=${this.search}&per_page=${this.limit}&page=${this.page}`
       let header = {
         headers: {
           Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,
         }
       }
+
+      // loading
+      this.isUploading = true
+
+      // get all files
       axios.get(url, header).then(function (response) {
+
+        console.log(response.data)
 
         // set data
         context.files = response.data.data
+        context.lastPage = response.data.meta["last_page"] !== 0 ? response.data.meta["last_page"] : 1
 
       }).catch(function (error) {
 
         // show error
         context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
 
+      }).finally(function () {
+
+        // disabled page button
+        context.disabledPageButton()
+
       })
+
+      // loading
+      this.isUploading = false
+
     },
     removeImage(id) {
       this.files = this.files.filter(function (value, index, arr) {
@@ -151,6 +226,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@media only screen and (max-width: 600px) {
+  .file-name {
+    text-align: right !important;
+  }
+}
 
 @media only screen and (max-width: 800px) {
   .mobile {
@@ -196,12 +277,5 @@ export default {
 .logo-image {
   width: 120px;
   height: 120px;
-}
-
-.scroll {
-  border-radius: 35px;
-  overflow: auto;
-  height: 60vh;
-  overflow-x: hidden;
 }
 </style>
