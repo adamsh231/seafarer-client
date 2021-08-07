@@ -119,16 +119,12 @@ export default {
       if (this.page > 1) {
         this.page--
         this.getAllFiles()
-      } else {
-        this.page = 1
       }
     },
     nextButton() {
       if (this.page < this.lastPage) {
         this.page++
         this.getAllFiles()
-      } else {
-        this.page = this.lastPage
       }
     },
     download(url) {
