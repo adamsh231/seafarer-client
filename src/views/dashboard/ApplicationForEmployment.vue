@@ -50,7 +50,7 @@
           <p class="form-text p-text-right">Date of Birth (mm/dd/yyyy)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="afe['personal_information']['date_of_birth']"
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2050" v-model="afe['personal_information']['date_of_birth']"
                     class="p-inputtext-sm"
                     dateFormat="mm/dd/yy"/>
         </div>
@@ -533,7 +533,7 @@
           <p class="form-text p-text-right">Date of Issue (mm/dd/yyyy)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="afe['documentation_information']['date_of_issue']"
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050" v-model="afe['documentation_information']['date_of_issue']"
                     class="p-inputtext-sm"
                     dateFormat="mm/dd/yy"/>
         </div>
@@ -553,7 +553,7 @@
           <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050"
                     v-model="afe['documentation_information']['date_of_expiration']" class="p-inputtext-sm"
                     dateFormat="mm/dd/yy"/>
         </div>
@@ -589,7 +589,7 @@
               <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050"
                         v-model="afe['documentation_information']['crew_visas'][index]['date_of_expiration']" class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -646,7 +646,7 @@
               <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050"
                         v-model="afe['documentation_information']['stcw_certification'][index]['date_of_expiration']" class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -695,7 +695,7 @@
               <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050"
                         v-model="afe['documentation_information']['seamans_book'][index]['date_of_expiration']" class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -755,7 +755,7 @@
               <p class="form-text p-text-right">Date of Issue (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050"
                         v-model="afe['documentation_information']['other_certificates'][index]['date_of_issue']" class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -766,7 +766,7 @@
               <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050"
                         v-model="afe['documentation_information']['other_certificates'][index]['date_of_expiration']" class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -850,7 +850,7 @@
               <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2050"
                         v-model="afe['employment_history'][index]['from']" class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -861,7 +861,7 @@
               <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2050"
                         v-model="afe['employment_history'][index]['to']" class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -940,7 +940,7 @@
               <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="afe['education'][index]['from']"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2050" v-model="afe['education'][index]['from']"
                         class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -951,7 +951,7 @@
               <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
             </div>
             <div class="p-col-12 p-md-9 p-my-auto">
-              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="afe['education'][index]['to']"
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2050" v-model="afe['education'][index]['to']"
                         class="p-inputtext-sm"
                         dateFormat="mm/dd/yy"/>
             </div>
@@ -1120,6 +1120,7 @@ export default {
   },
   created() {
     this.tokenOnlyArea(true)
+    this.getData()
   },
   methods: {
     save(){
@@ -1147,6 +1148,33 @@ export default {
 
       })
 
+      // reload
+      this.getData()
+
+    },
+    getData(){
+
+      // init header
+      const context = this
+      let url = `${context.apiDocumentUrl}/afe`
+      let header = {
+        headers: {
+          'Authorization': `Bearer ${context.getCookie(context.tokenCookie)}`,
+        }
+      }
+
+      // upload file
+      axios.get(url, header).then(function (response) {
+
+        // bind
+        context.afe = response.data.data
+
+      }).catch(function (error) {
+
+        // show error
+        context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+      })
     }
   }
 }
