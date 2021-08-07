@@ -114,6 +114,10 @@ export default {
     disabledPageButton() {
       this.isPrevDisabled = this.page <= 1
       this.isNextDisabled = this.page >= this.lastPage
+
+      if (this.page >= this.lastPage) {
+        this.page = this.lastPage
+      }
     },
     prevButton() {
       if (this.page > 1) {
