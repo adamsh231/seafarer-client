@@ -90,10 +90,10 @@
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
             <RadioButton id="gender1" name="gender" value="Male" v-model="afe['personal_information']['gender']"/>
-            <label for="gender1">Male</label>
+            <label>Male</label>
             <p class="p-mr-3"></p>
             <RadioButton id="gender2" name="gender" value="Female" v-model="afe['personal_information']['gender']"/>
-            <label for="gender2">Female</label>
+            <label>Female</label>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
           <p class="form-text p-text-right">Weight (kg)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText v-model="afe['personal_information']['weight']" type="number" class="p-inputtext-sm"/>
+          <InputText v-model.number="afe['personal_information']['weight']" type="number" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -121,7 +121,7 @@
           <p class="form-text p-text-right">Height (cm)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText v-model="afe['personal_information']['height']" type="number" class="p-inputtext-sm"/>
+          <InputText v-model.number="afe['personal_information']['height']" type="number" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -131,11 +131,11 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="tattoo1" name="tattoo" :value="true" v-model="afe['personal_information']['has_tattoo']"/>
-            <label for="tattoo1">Yes</label>
+            <RadioButton name="tattoo" :value="true" v-model="afe['personal_information']['has_tattoo']"/>
+            <label>Yes</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="tattoo2" name="tattoo" :value="false" v-model="afe['personal_information']['has_tattoo']"/>
-            <label for="tattoo2">No</label>
+            <RadioButton name="tattoo" :value="false" v-model="afe['personal_information']['has_tattoo']"/>
+            <label>No</label>
           </div>
         </div>
       </div>
@@ -146,11 +146,11 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="tattooShowed1" name="tattoo" :value="true" v-model="afe['personal_information']['is_tattoo_visible']"/>
-            <label for="tattooShowed1">Yes</label>
+            <RadioButton name="tattoo" :value="true" v-model="afe['personal_information']['is_tattoo_visible']"/>
+            <label>Yes</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="tattooShowed2" name="tattoo" :value="false" v-model="afe['personal_information']['is_tattoo_visible']"/>
-            <label for="tattooShowed2">No</label>
+            <RadioButton name="tattoo" :value="false" v-model="afe['personal_information']['is_tattoo_visible']"/>
+            <label>No</label>
           </div>
         </div>
       </div>
@@ -282,21 +282,21 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="status1" name="status" value="Single" v-model="afe['dependant_information']['marital_status']"/>
-            <label for="status1">Single</label>
+            <RadioButton name="status" value="Single" v-model="afe['dependant_information']['marital_status']"/>
+            <label>Single</label>
             <p class="p-mr-3"></p>
             <RadioButton id="status2" name="status" value="Married" v-model="afe['dependant_information']['marital_status']"/>
-            <label for="status2">Married</label>
+            <label>Married</label>
             <p class="p-mr-3"></p>
             <RadioButton id="status3" name="status" value="Divorced" v-model="afe['dependant_information']['marital_status']"/>
-            <label for="status3">Divorced</label>
+            <label>Divorced</label>
           </div>
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="status4" name="status" value="Widowed" v-model="afe['dependant_information']['marital_status']"/>
-            <label for="status4">Widowed</label>
+            <RadioButton name="status" value="Widowed" v-model="afe['dependant_information']['marital_status']"/>
+            <label>Widowed</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="status5" name="status" value="Other" v-model="afe['dependant_information']['marital_status']"/>
-            <label for="status5">Other</label>
+            <RadioButton name="status" value="Other" v-model="afe['dependant_information']['marital_status']"/>
+            <label>Other</label>
           </div>
         </div>
       </div>
@@ -306,7 +306,7 @@
           <p class="form-text p-text-right">Number of children under 18 years of age?</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText v-model="afe['dependant_information']['number_of_children_under_18']" type="text" class="p-inputtext-sm"/>
+          <InputText v-model.number="afe['dependant_information']['number_of_children_under_18']" type="text" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -465,7 +465,7 @@
           <p class="form-text p-text-right">Salary Desired (USD)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <InputText v-model="afe['position_desired']['salary_desired']" type="number" class="p-inputtext-sm"/>
+          <InputText v-model.number="afe['position_desired']['salary_desired']" type="number" class="p-inputtext-sm"/>
         </div>
       </div>
 
@@ -475,11 +475,11 @@
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
           <div class="p-field-radiobutton p-my-auto">
-            <RadioButton id="worker1" name="worker" :value="true" v-model="afe['position_desired']['has_cruise_ship']"/>
-            <label for="worker1">Yes</label>
+            <RadioButton name="worker" :value="true" v-model="afe['position_desired']['has_cruise_ship']"/>
+            <label>Yes</label>
             <p class="p-mr-3"></p>
-            <RadioButton id="worker2" name="worker" :value="false" v-model="afe['position_desired']['has_cruise_ship']"/>
-            <label for="worker2">No</label>
+            <RadioButton name="worker" :value="false" v-model="afe['position_desired']['has_cruise_ship']"/>
+            <label>No</label>
           </div>
         </div>
       </div>
@@ -566,288 +566,55 @@
           </div>
         </div>
       </div>
+      <div v-for="(crewVisa, index) in afe['documentation_information']['crew_visas']">
+        <Fieldset :legend="crewVisa.name" :toggleable="true" :collapsed="true" class="container-table">
 
-      <Fieldset legend="C1/D" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">C1/D</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="c1d1" name="worker" :value="true" v-model="afe['documentation_information']['crew_visas'][0]['yes_or_no']"/>
-              <label for="c1d1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="c1d2" name="worker" :value="false" v-model="afe['documentation_information']['crew_visas'][0]['yes_or_no']"/>
-              <label for="c1d2">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">{{ crewVisa.name }}</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <div class="p-field-radiobutton p-my-auto">
+                <RadioButton name="worker" :value="true" v-model="afe['documentation_information']['crew_visas'][index]['yes_or_no']"/>
+                <label>Yes</label>
+                <p class="p-mr-3"></p>
+                <RadioButton name="worker" :value="false" v-model="afe['documentation_information']['crew_visas'][index]['yes_or_no']"/>
+                <label>No</label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="c1dExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Type</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="C1" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">C1</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="c11" name="worker" value="Yes" v-model="c1"/>
-              <label for="c11">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="c12" name="worker" value="No" v-model="c1"/>
-              <label for="c12">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+                        v-model="afe['documentation_information']['crew_visas'][index]['date_of_expiration']" class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="c1Expiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Type</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="D" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">D</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="d1" name="worker" value="Yes" v-model="d"/>
-              <label for="d1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="d2" name="worker" value="No" v-model="d"/>
-              <label for="d2">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Visa No</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['documentation_information']['crew_visas'][index]['visa_no']" type="text" class="p-inputtext-sm"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="dExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Type</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Schengen" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Schengen</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="schengen1" name="worker" value="Yes" v-model="schengen"/>
-              <label for="schengen1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="schengen2" name="worker" value="No" v-model="schengen"/>
-              <label for="schengen2">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Type</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['documentation_information']['crew_visas'][index]['type']" type="text" class="p-inputtext-sm"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="schengenExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Type</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Other 1" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Other 1</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="other11" name="worker" value="Yes" v-model="other1"/>
-              <label for="other11">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="other11" name="worker" value="No" v-model="other1"/>
-              <label for="other11">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="other1Expiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Type</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Other 2" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Other 2</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="other21" name="worker" value="Yes" v-model="other2"/>
-              <label for="other21">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="other22" name="worker" value="No" v-model="other2"/>
-              <label for="other22">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="other2Expiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Type</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
+        </Fieldset>
+      </div>
 
       <div class="p-grid p-my-0">
         <div class="p-col p-text-center">
@@ -856,272 +623,47 @@
           </div>
         </div>
       </div>
+      <div v-for="(stcwCertification, index) in afe['documentation_information']['stcw_certification']">
+        <Fieldset :legend="stcwCertification.type" :toggleable="true" :collapsed="true" class="container-table">
 
-      <Fieldset legend="Elementary First Aid (BST)" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Elementary First Aid (BST)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="efa1" name="worker" value="Yes" v-model="efa"/>
-              <label for="efa1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="efa2" name="worker" value="No" v-model="efa"/>
-              <label for="efa2">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">{{ stcwCertification.type }}</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <div class="p-field-radiobutton p-my-auto">
+                <RadioButton name="worker" :value="true" v-model="afe['documentation_information']['stcw_certification'][index]['yes_or_no']"/>
+                <label>Yes</label>
+                <p class="p-mr-3"></p>
+                <RadioButton name="worker" :value="false" v-model="afe['documentation_information']['stcw_certification'][index]['yes_or_no']"/>
+                <label>No</label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="efaExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Fire Prevention & Fire Fighting (BST)" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Fire Prevention & Fire Fighting (BST)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="fpff1" name="worker" value="Yes" v-model="fpff"/>
-              <label for="fpff1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="fpff2" name="worker" value="No" v-model="fpff"/>
-              <label for="fpff2">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+                        v-model="afe['documentation_information']['stcw_certification'][index]['date_of_expiration']" class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="fpffExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Personal Safety & Social Responsibility (BST)" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Personal Safety & Social Responsibility (BST)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="pssr1" name="worker" value="Yes" v-model="pssr"/>
-              <label for="pssr1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="pssr2" name="worker" value="No" v-model="pssr"/>
-              <label for="pssr2">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Certificate Number</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['documentation_information']['stcw_certification'][index]['certificate_number']" type="text"
+                         class="p-inputtext-sm"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="pssrExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Personal Survival Techniques (BST)" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Personal Survival Techniques (BST)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="pst1" name="worker" value="Yes" v-model="pst"/>
-              <label for="pst1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="pst2" name="worker" value="No" v-model="pst"/>
-              <label for="pst2">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="pstExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Crowd Management & Passenger Safety" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Crowd Management & Passenger Safety</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="cmps1" name="worker" value="Yes" v-model="cmps"/>
-              <label for="cmps1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="cmps2" name="worker" value="No" v-model="cmps"/>
-              <label for="cmps2">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="cmpsExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Crisis Management & Human Behavior" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Crisis Management & Human Behavior</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="cmhb1" name="worker" value="Yes" v-model="cmhb"/>
-              <label for="cmhb1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="cmhb2" name="worker" value="No" v-model="cmhb"/>
-              <label for="cmhb2">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="cmhbExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Security Awareness" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Security Awareness</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="sa1" name="worker" value="Yes" v-model="sa"/>
-              <label for="sa1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="sa2" name="worker" value="No" v-model="sa"/>
-              <label for="sa2">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="saExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Visa No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
+        </Fieldset>
+      </div>
 
       <div class="p-grid p-my-0">
         <div class="p-col p-text-center">
@@ -1130,147 +672,55 @@
           </div>
         </div>
       </div>
+      <div v-for="(seamansBook, index) in afe['documentation_information']['seamans_book']">
+        <Fieldset :legend="seamansBook.type" :toggleable="true" :collapsed="true" class="container-table">
 
-      <Fieldset legend="National" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">National</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="national1" name="worker" value="Yes" v-model="national"/>
-              <label for="national1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="national2" name="worker" value="No" v-model="national"/>
-              <label for="national2">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">{{ seamansBook.type }}</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <div class="p-field-radiobutton p-my-auto">
+                <RadioButton name="worker" :value="true" v-model="afe['documentation_information']['seamans_book'][index]['yes_or_no']"/>
+                <label>Yes</label>
+                <p class="p-mr-3"></p>
+                <RadioButton name="worker" :value="false" v-model="afe['documentation_information']['seamans_book'][index]['yes_or_no']"/>
+                <label>No</label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="nationalExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Number</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Nationality</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Flag State 1" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Flag State 1</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="fs11" name="worker" value="Yes" v-model="fs1"/>
-              <label for="fs11">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="fs12" name="worker" value="No" v-model="fs1"/>
-              <label for="fs12">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+                        v-model="afe['documentation_information']['seamans_book'][index]['date_of_expiration']" class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="fs1Expiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Number</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Nationality</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Flag State 2" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Flag State 2</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="fs21" name="worker" value="Yes" v-model="fs2"/>
-              <label for="fs21">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="fs22" name="worker" value="No" v-model="fs2"/>
-              <label for="fs22">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Number</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['documentation_information']['seamans_book'][index]['number']" type="text" class="p-inputtext-sm"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Nationality</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['documentation_information']['seamans_book'][index]['nationality']" type="text" class="p-inputtext-sm"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="fs2Expiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Number</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Nationality</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
+        </Fieldset>
+      </div>
 
       <div class="p-grid p-my-0">
         <div class="p-col p-text-center">
@@ -1279,108 +729,61 @@
           </div>
         </div>
       </div>
+      <div v-for="(otherCertificates, index) in afe['documentation_information']['other_certificates']">
+        <Fieldset :legend="otherCertificates.type" :toggleable="true" :collapsed="true" class="container-table">
 
-      <Fieldset legend="Ship’s Cook" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Ship’s Cook</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="sc0" name="worker" value="N/A" v-model="sc"/>
-              <label for="sc0">N/A</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="sc1" name="worker" value="Yes" v-model="sc"/>
-              <label for="sc1">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="sc2" name="worker" value="No" v-model="sc"/>
-              <label for="sc2">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">{{ otherCertificates.type }}</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <div class="p-field-radiobutton p-my-auto">
+                <RadioButton name="worker" value="N/A" v-model="afe['documentation_information']['other_certificates'][index]['yes_or_no_or_na']"/>
+                <label>N/A</label>
+                <p class="p-mr-3"></p>
+                <RadioButton name="worker" value="Yes" v-model="afe['documentation_information']['other_certificates'][index]['yes_or_no_or_na']"/>
+                <label>Yes</label>
+                <p class="p-mr-3"></p>
+                <RadioButton name="worker" value="No" v-model="afe['documentation_information']['other_certificates'][index]['yes_or_no_or_na']"/>
+                <label>No</label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Issue (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="scIssue" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="scExpiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Comments</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Other 1" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Other 1:</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="oco10" name="oco1" value="N/A" v-model="oco1"/>
-              <label for="oco10">N/A</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="sc1" name="oco1" value="Yes" v-model="oco1"/>
-              <label for="oco11">Yes</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="sc2" name="oco1" value="No" v-model="oco1"/>
-              <label for="oco11">No</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Date of Issue (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+                        v-model="afe['documentation_information']['other_certificates'][index]['date_of_issue']" class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Issue (mm/dd/yyyy)</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050"
+                        v-model="afe['documentation_information']['other_certificates'][index]['date_of_expiration']" class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="oco1Issue" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Date of Expiration (mm/dd/yyyy)</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Comments</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['documentation_information']['other_certificates'][index]['comments']" type="text"
+                         class="p-inputtext-sm"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="2000:2050" v-model="oco1Expiration" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Comments</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-      </Fieldset>
+        </Fieldset>
+      </div>
 
       <div class="boxes"></div>
 
@@ -1399,266 +802,103 @@
         </div>
       </div>
 
-      <Fieldset legend="Employer 1" :toggleable="true" :collapsed="true" class="container-table">
+      <div v-for="(employmentHistory, index) in afe['employment_history']">
+        <Fieldset :legend="'Employer ' + (index + 1)" :toggleable="true" :collapsed="true" class="container-table">
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Employer/Company Name</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Employer/Company Name</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['employment_history'][index]['employer_name']" type="text"
+                         class="p-inputtext-sm form-input normal-width"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Company Phone No</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Company Phone No</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['employment_history'][index]['company_phone_no']" type="text"
+                         class="p-inputtext-sm"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Position Held</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Position Held</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['employment_history'][index]['position_held']" type="text"
+                         class="p-inputtext-sm form-input normal-width"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Supervisor Name</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Supervisor Name</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['employment_history'][index]['supervisor_name']" type="text"
+                         class="p-inputtext-sm form-input normal-width"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005"
+                        v-model="afe['employment_history'][index]['from']" class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer1From" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005"
+                        v-model="afe['employment_history'][index]['to']" class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer1To" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Starting Salary in USD</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Starting Salary in USD</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model.number="afe['employment_history'][index]['starting_salary']" type="number"
+                         class="p-inputtext-sm"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="number" class="p-inputtext-sm"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Ending Salary in USD</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Ending Salary in USD</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model.number="afe['employment_history'][index]['end_salary']" type="number"
+                         class="p-inputtext-sm"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="number" class="p-inputtext-sm"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-mx-auto p-my-0">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Reason for Leaving</p>
+          <div class="p-grid p-mx-auto p-my-0">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Reason for Leaving</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['employment_history'][index]['reason_for_leaving']" type="text"
+                         class="p-inputtext-sm form-input normal-width"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
 
-      </Fieldset>
-
-      <Fieldset legend="Employer 2" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Employer/Company Name</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Company Phone No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Position Held</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Supervisor Name</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer2From" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer2To" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Starting Salary in USD</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="number" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Ending Salary in USD</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="number" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-mx-auto p-my-0">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Reason for Leaving</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Employer 3" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Employer/Company Name</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Company Phone No</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Position Held</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Supervisor Name</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer3From" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="employer3To" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Starting Salary in USD</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="number" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Ending Salary in USD</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="number" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-mx-auto p-my-0">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Reason for Leaving</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-      </Fieldset>
+        </Fieldset>
+      </div>
 
       <div class="boxes"></div>
 
@@ -1674,260 +914,60 @@
         </div>
       </div>
 
-      <Fieldset legend="High School" :toggleable="true" :collapsed="true" class="container-table">
+      <div v-for="(education, index) in afe['education']">
+        <Fieldset :legend="education.type" :toggleable="true" :collapsed="true" class="container-table">
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">School Name and City</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">School Name</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['education'][index]['school_name_and_city']" type="text" class="p-inputtext-sm form-input normal-width"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">No. of Years</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">No. of Years</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model.number="afe['education'][index]['no_of_years']" type="text" class="p-inputtext-sm"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="afe['education'][index]['from']"
+                        class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduhsFrom" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="afe['education'][index]['to']"
+                        class="p-inputtext-sm"
+                        dateFormat="mm/dd/yy"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduhsTo" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
 
-        <div class="p-grid p-mx-auto p-my-0">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Major/Diploma</p>
+          <div class="p-grid p-mx-auto p-my-0">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Major/Diploma</p>
+            </div>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['education'][index]['major']" type="text" class="p-inputtext-sm form-input normal-width"/>
+            </div>
           </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
 
-      </Fieldset>
-
-      <Fieldset legend="College" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">School Name and City</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">No. of Years</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="educolFrom" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="educolTo" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-mx-auto p-my-0">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Major/Diploma</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="University" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">School Name and City</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">No. of Years</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduuniFrom" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduuniTo" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-mx-auto p-my-0">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Major/Diploma</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Apprenticeship" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">School Name and City</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">No. of Years</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduappFrom" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduappTo" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-mx-auto p-my-0">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Major/Diploma</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Other" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">School Name and City</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">No. of Years</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">From (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduotherFrom" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">To (mm/dd/yyyy)</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2005" v-model="eduotherTo" class="p-inputtext-sm"
-                      dateFormat="mm/dd/yy"/>
-          </div>
-        </div>
-
-        <div class="p-grid p-mx-auto p-my-0">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Major/Diploma</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto">
-            <InputText type="text" class="p-inputtext-sm form-input normal-width"/>
-          </div>
-        </div>
-
-      </Fieldset>
+        </Fieldset>
+      </div>
 
       <div class="boxes"></div>
 
@@ -1943,285 +983,74 @@
         </div>
       </div>
 
-      <Fieldset legend="English (mandatory)" :toggleable="true" :collapsed="true" class="container-table">
+      <div v-for="(language, index) in afe['languages']">
+        <Fieldset :legend="language.language" :toggleable="true" :collapsed="true" class="container-table">
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Speak</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="epls1" name="epls" value="Beginner" v-model="epls"/>
-              <label for="epls1">Beginner</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="epls2" name="epls" value="Intermediate" v-model="epls"/>
-              <label for="epls2">Intermediate</label>
+          <div v-if="language['is_other']" class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Language</p>
             </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="epls3" name="epls" value="Fluent" v-model="epls"/>
-              <label for="epls3">Fluent</label>
+            <div class="p-col-12 p-md-9 p-my-auto">
+              <InputText v-model="afe['languages'][index]['language']" type="text" class="p-inputtext-sm form-input normal-width"/>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Write</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="eplw1" name="eplw" value="Beginner" v-model="eplw"/>
-              <label for="eplw1">Beginner</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="eplw2" name="eplw" value="Intermediate" v-model="eplw"/>
-              <label for="eplw2">Intermediate</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Proficiency Level Speak</p>
             </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="eplw3" name="eplw" value="Fluent" v-model="eplw"/>
-              <label for="eplw3">Fluent</label>
+            <div class="p-col-12 p-md-9 p-my-auto small-text">
+              <div class="p-field-radiobutton p-my-auto">
+                <RadioButton v-if="language['n/a']" name="gpls" value="N/A" v-model="afe['languages'][index]['proviciency_level_speak']"/>
+                <label v-if="language['n/a']">N/A</label>
+                <p v-if="language['n/a']" class="p-mr-3"></p>
+                <RadioButton name="gpls" value="Beginner" v-model="afe['languages'][index]['proviciency_level_speak']"/>
+                <label>Beginner</label>
+              </div>
+              <div class="p-field-radiobutton p-my-auto">
+                <RadioButton name="gpls" value="Intermediate" v-model="afe['languages'][index]['proviciency_level_speak']"/>
+                <label>Intermediate</label>
+                <p class="p-mr-3"></p>
+                <RadioButton name="gpls" value="Fluent" v-model="afe['languages'][index]['proviciency_level_speak']"/>
+                <label>Fluent</label>
+              </div>
             </div>
           </div>
-        </div>
 
-      </Fieldset>
-
-      <Fieldset legend="Spanish" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Speak</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="spls0" name="spls" value="N/A" v-model="spls"/>
-              <label for="spls0">N/A</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="spls1" name="spls" value="Beginner" v-model="spls"/>
-              <label for="spls1">Beginner</label>
+          <div class="p-grid p-m-auto">
+            <div class="p-col-12 p-md-3">
+              <p class="form-text p-text-right">Proficiency Level Write</p>
             </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="spls2" name="spls" value="Intermediate" v-model="spls"/>
-              <label for="spls2">Intermediate</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="spls3" name="spls" value="Fluent" v-model="spls"/>
-              <label for="spls3">Fluent</label>
+            <div class="p-col-12 p-md-9 p-my-auto small-text">
+              <div class="p-field-radiobutton p-my-auto">
+                <RadioButton v-if="language['n/a']" name="gplw" value="N/A" v-model="afe['languages'][index]['proviciency_level_write']"/>
+                <label v-if="language['n/a']">N/A</label>
+                <p v-if="language['n/a']" class="p-mr-3"></p>
+                <RadioButton name="gplw" value="Beginner" v-model="afe['languages'][index]['proviciency_level_write']"/>
+                <label>Beginner</label>
+              </div>
+              <div class="p-field-radiobutton p-my-auto">
+                <RadioButton name="gplw" value="Intermediate" v-model="afe['languages'][index]['proviciency_level_write']"/>
+                <label>Intermediate</label>
+                <p class="p-mr-3"></p>
+                <RadioButton name="gplw" value="Fluent" v-model="afe['languages'][index]['proviciency_level_write']"/>
+                <label>Fluent</label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Write</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="splw0" name="splw" value="N/A" v-model="splw"/>
-              <label for="splw0">N/A</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="splw1" name="splw" value="Beginner" v-model="splw"/>
-              <label for="splw1">Beginner</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="splw2" name="splw" value="Intermediate" v-model="splw"/>
-              <label for="splw2">Intermediate</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="splw3" name="splw" value="Fluent" v-model="splw"/>
-              <label for="splw3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="French" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Speak</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="fpls0" name="fpls" value="N/A" v-model="fpls"/>
-              <label for="fpls0">N/A</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="fpls1" name="fpls" value="Beginner" v-model="fpls"/>
-              <label for="fpls1">Beginner</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="fpls2" name="fpls" value="Intermediate" v-model="fpls"/>
-              <label for="fpls2">Intermediate</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="fpls3" name="fpls" value="Fluent" v-model="fpls"/>
-              <label for="fpls3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Write</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="fplw0" name="fplw" value="N/A" v-model="fplw"/>
-              <label for="fplw0">N/A</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="fplw1" name="fplw" value="Beginner" v-model="fplw"/>
-              <label for="fplw1">Beginner</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="fplw2" name="fplw" value="Intermediate" v-model="fplw"/>
-              <label for="fplw2">Intermediate</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="fplw3" name="fplw" value="Fluent" v-model="fplw"/>
-              <label for="fplw3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="German" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Speak</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="gpls0" name="gpls" value="N/A" v-model="gpls"/>
-              <label for="gpls0">N/A</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="gpls1" name="gpls" value="Beginner" v-model="gpls"/>
-              <label for="gpls1">Beginner</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="gpls2" name="gpls" value="Intermediate" v-model="gpls"/>
-              <label for="gpls2">Intermediate</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="gpls3" name="gpls" value="Fluent" v-model="gpls"/>
-              <label for="gpls3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Write</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="gplw0" name="gplw" value="N/A" v-model="gplw"/>
-              <label for="gplw0">N/A</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="gplw1" name="gplw" value="Beginner" v-model="gplw"/>
-              <label for="gplw1">Beginner</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="gplw2" name="gplw" value="Intermediate" v-model="gplw"/>
-              <label for="gplw2">Intermediate</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="gplw3" name="gplw" value="Fluent" v-model="gplw"/>
-              <label for="gplw3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Other 1" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Speak</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="o1pls1" name="o1pls" value="Beginner" v-model="o1pls"/>
-              <label for="o1pls1">Beginner</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="o1pls2" name="o1pls" value="Intermediate" v-model="o1pls"/>
-              <label for="o1pls2">Intermediate</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="o1pls3" name="o1pls" value="Fluent" v-model="o1pls"/>
-              <label for="o1pls3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Write</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="o1plw1" name="o1plw" value="Beginner" v-model="o1plw"/>
-              <label for="o1plw1">Beginner</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="o1plw2" name="o1plw" value="Intermediate" v-model="o1plw"/>
-              <label for="o1plw2">Intermediate</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="o1plw3" name="o1plw" value="Fluent" v-model="o1plw"/>
-              <label for="o1plw3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-      </Fieldset>
-
-      <Fieldset legend="Other 2" :toggleable="true" :collapsed="true" class="container-table">
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Speak</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="o2pls1" name="o2pls" value="Beginner" v-model="o2pls"/>
-              <label for="o2pls1">Beginner</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="o2pls2" name="o2pls" value="Intermediate" v-model="o2pls"/>
-              <label for="o2pls2">Intermediate</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="o2pls3" name="o2pls" value="Fluent" v-model="o2pls"/>
-              <label for="o2pls3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-grid p-m-auto">
-          <div class="p-col-12 p-md-3">
-            <p class="form-text p-text-right">Proficiency Level Write</p>
-          </div>
-          <div class="p-col-12 p-md-9 p-my-auto small-text">
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="o2plw1" name="o2plw" value="Beginner" v-model="o2plw"/>
-              <label for="o2plw1">Beginner</label>
-              <p class="p-mr-3"></p>
-              <RadioButton id="o2plw2" name="o2plw" value="Intermediate" v-model="o2plw"/>
-              <label for="o2plw2">Intermediate</label>
-            </div>
-            <div class="p-field-radiobutton p-my-auto">
-              <RadioButton id="o2plw3" name="o2plw" value="Fluent" v-model="o2plw"/>
-              <label for="o2plw3">Fluent</label>
-            </div>
-          </div>
-        </div>
-
-      </Fieldset>
+        </Fieldset>
+      </div>
 
       <div class="boxes"></div>
 
     </div>
 
+    <!--  Save Button  -->
     <div class="p-text-center">
       <hr>
-      <Button style="width: 95%" label="Save" class="p-button-lg p-my-4"/>
+      <Button style="width: 95%" label="Save" class="p-button-lg p-my-4" @click="save"/>
     </div>
-
 
     <div class="boxes"></div>
 
@@ -2230,6 +1059,8 @@
 </template>
 
 <script>
+
+import axios from "axios";
 
 export default {
   name: "ApplicationForEmployment",
@@ -2242,18 +1073,82 @@ export default {
         "dependant_information": {"persons": [{"last_name": ""}, {"last_name": ""}]},
         "position_desired": {},
         "documentation_information": {
-          "crew_visas": [{"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}],
-          "stcw_certification": [{"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}, {"type": ""}],
-          "seamans_book": [{"type": ""}, {"type": ""}, {"type": ""}],
-          "other_certificates": [{"type": ""}, {"type": ""}]
-        }
+          "crew_visas": [
+            {"name": "C1/D"},
+            {"name": "C1"},
+            {"name": "D"},
+            {"name": "Schengen"},
+            {"name": "Other 1"},
+            {"name": "Other 2"}
+          ],
+          "stcw_certification": [
+            {"type": "Elementary First Aid (BST)"},
+            {"type": "Fire Prevention & Fire Fighting (BST)"},
+            {"type": "Personal Safety & Social Responsibility (BST)"},
+            {"type": "Personal Survival Techniques (BST)"},
+            {"type": "Crowd Management & Passenger Safety"},
+            {"type": "Crisis Management & Human Behavior"},
+            {"type": "Security Awareness"}],
+          "seamans_book": [
+            {"type": "National"},
+            {"type": "Flag State 1"},
+            {"type": "Flag State 2"}
+          ],
+          "other_certificates": [
+            {"type": "Ship’s Cook"},
+            {"type": "Other 1"}
+          ]
+        },
+        "employment_history": [{"employer_name": ""}, {"employer_name": ""}, {"employer_name": ""}],
+        "education": [
+          {"type": "High School"},
+          {"type": "College"},
+          {"type": "University"},
+          {"type": "Apprenticeship"},
+          {"type": "Other"},
+        ],
+        "languages": [
+          {"language": "English (mandatory)", "n/a": false, "is_other" : false},
+          {"language": "Spanish", "n/a": true, "is_other" : false},
+          {"language": "French", "n/a": true, "is_other" : false},
+          {"language": "German", "n/a": true, "is_other" : false},
+          {"language": "Other 1", "n/a": false, "is_other" : true},
+          {"language": "Other 2", "n/a": false, "is_other" : true},
+        ]
       },
     }
   },
   created() {
     this.tokenOnlyArea(true)
   },
-  methods: {}
+  methods: {
+    save(){
+
+      // init header
+      const context = this
+      let url = `${context.apiDocumentUrl}/afe`
+      let formData = this.afe
+      let header = {
+        headers: {
+          'Authorization': `Bearer ${context.getCookie(context.tokenCookie)}`,
+        }
+      }
+
+      // upload file
+      axios.post(url, formData, header).then(function (response) {
+
+        // reload
+        context.showToast(context.toastSeveritySuccess, context.toastSeveritySuccess, context.toastDefaultLife)
+
+      }).catch(function (error) {
+
+        // show error
+        context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+
+      })
+
+    }
+  }
 }
 </script>
 

@@ -72,7 +72,7 @@ export default {
     },
     afe(){
       const context = this
-      window.open(context.apiDocUrl, "_blank");
+      window.open(context.apiPDFUrl, "_blank");
     },
     getCurrentUser() {
       // current user api

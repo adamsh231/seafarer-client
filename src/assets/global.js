@@ -3,9 +3,10 @@ import axios from "axios";
 export default {
     data() {
         return {
-            apiDocUrl: "https://api.seafarindo.online/public/Application%20For%20Employment-FIX.pdf",
+            apiPDFUrl: "https://api.seafarindo.online/public/Application%20For%20Employment-FIX.pdf",
             apiAuthUrl: "https://api.seafarindo.online/authentication/v1",
             apiStorageUrl: "https://api.seafarindo.online/storage/v1",
+            apiDocumentUrl: "https://api.seafarindo.online/document/v1",
 
             tokenCookie: "token",
             refreshTokenCookie: "refresh_token",
