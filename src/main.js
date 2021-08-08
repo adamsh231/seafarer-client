@@ -8,6 +8,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios';
 // ------------------------------ //
 
+// ----------- Moment ------------ //
+import moment from "moment/moment";
+// ------------------------------ //
+
 // --------- Prime Vue ---------- //
 import PrimeVue from "primevue/config";
 
@@ -51,6 +55,7 @@ const app = createApp(App)
 app.use(store)
 app.use(router)
 app.use(VueAxios, axios)
+app.use(moment)
 
 // --------- Prime Vue ---------- //
 app.use(PrimeVue)

@@ -1,7 +1,7 @@
 <template>
 
   <div class="p-shadow-24 container p-mx-auto p-mt-5">
-    <div class="p-text-center">
+    <div class="p-text-center" style="cursor: pointer">
       <img src="../../assets/logo2.png" class="logo-image p-mt-4" @click="$router.push('/dashboard')">
       <h1 class="c-primary p-my-1 title">Application For Employment</h1>
     </div>
@@ -50,7 +50,8 @@
           <p class="form-text p-text-right">Date of Birth (mm/dd/yyyy)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2050" v-model="afe['personal_information']['date_of_birth']"
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1950:2050"
+                    v-model="afe['personal_information']['date_of_birth']"
                     class="p-inputtext-sm"
                     dateFormat="mm/dd/yy"/>
         </div>
@@ -325,6 +326,15 @@
 
       <div class="p-grid p-mx-auto p-my-0">
         <div class="p-col-12 p-md-3">
+          <p class="form-text p-text-right">Relationship</p>
+        </div>
+        <div class="p-col-12 p-md-9 p-my-auto">
+          <InputText v-model="afe['dependant_information']['persons'][0]['relationship']" type="text" class="p-inputtext-sm form-input normal-width"/>
+        </div>
+      </div>
+
+      <div class="p-grid p-mx-auto p-my-0">
+        <div class="p-col-12 p-md-3">
           <p class="form-text p-text-right">Last Name</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
@@ -380,6 +390,15 @@
       <div class="p-grid p-my-0">
         <div class="p-col p-text-center">
           <h3 class="p-text-bold p-mb-0">Person 2</h3>
+        </div>
+      </div>
+
+      <div class="p-grid p-mx-auto p-my-0">
+        <div class="p-col-12 p-md-3">
+          <p class="form-text p-text-right">Relationship</p>
+        </div>
+        <div class="p-col-12 p-md-9 p-my-auto">
+          <InputText v-model="afe['dependant_information']['persons'][1]['relationship']" type="text" class="p-inputtext-sm form-input normal-width"/>
         </div>
       </div>
 
@@ -533,7 +552,8 @@
           <p class="form-text p-text-right">Date of Issue (mm/dd/yyyy)</p>
         </div>
         <div class="p-col-12 p-md-9 p-my-auto">
-          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050" v-model="afe['documentation_information']['date_of_issue']"
+          <Calendar :monthNavigator="true" :yearNavigator="true" yearRange="1990:2050"
+                    v-model="afe['documentation_information']['date_of_issue']"
                     class="p-inputtext-sm"
                     dateFormat="mm/dd/yy"/>
         </div>
@@ -1049,7 +1069,7 @@
     <!--  Save Button  -->
     <div class="p-text-center">
       <hr>
-      <Button style="width: 95%" label="Save" class="p-button-lg p-my-4" @click="save"/>
+      <Button style="width: 95%" label="Save" class="p-button-lg p-my-4" @click="save" :disabled="isSaving"/>
     </div>
 
     <div class="boxes"></div>
@@ -1061,12 +1081,14 @@
 <script>
 
 import axios from "axios";
+import moment from "moment/moment";
 
 export default {
   name: "ApplicationForEmployment",
   components: {},
   data() {
     return {
+      isSaving: false,
       afe: {
         "personal_information": {},
         "contact_information": {},
@@ -1108,12 +1130,12 @@ export default {
           {"type": "Other"},
         ],
         "languages": [
-          {"language": "English (mandatory)", "n/a": false, "is_other" : false},
-          {"language": "Spanish", "n/a": true, "is_other" : false},
-          {"language": "French", "n/a": true, "is_other" : false},
-          {"language": "German", "n/a": true, "is_other" : false},
-          {"language": "Other 1", "n/a": false, "is_other" : true},
-          {"language": "Other 2", "n/a": false, "is_other" : true},
+          {"language": "English (mandatory)", "n/a": false, "is_other": false},
+          {"language": "Spanish", "n/a": true, "is_other": false},
+          {"language": "French", "n/a": true, "is_other": false},
+          {"language": "German", "n/a": true, "is_other": false},
+          {"language": "Other 1", "n/a": false, "is_other": true},
+          {"language": "Other 2", "n/a": false, "is_other": true},
         ]
       },
     }
@@ -1123,7 +1145,54 @@ export default {
     this.getData()
   },
   methods: {
-    save(){
+    computeDate(date, isPost = false) { // for date to be view or post (parsing into string or date before send it)
+      if (isPost) {
+        return (date === null || date === "" || date === undefined) ? null : moment(date).toDate()
+      } else {
+        return moment(date).format("MM/DD/YYYY") === "01/01/0001" ? null : moment(moment(date).format("MM/DD/YYYY")).toDate()
+      }
+    },
+    defineIsOther() { // for specific languages
+      this.afe["languages"].forEach((item, index) => {
+        if (index === 0) {
+          this.afe["languages"][index]["n/a"] = false
+          this.afe["languages"][index]["is_other"] = false
+        } else if (index >= 4) {
+          this.afe["languages"][index]["n/a"] = false
+          this.afe["languages"][index]["is_other"] = true
+        } else {
+          this.afe["languages"][index]["n/a"] = true
+          this.afe["languages"][index]["is_other"] = false
+        }
+      })
+    },
+    parsingDate(isPost = false) {
+      this.afe["personal_information"]["date_of_birth"] = this.computeDate(this.afe["personal_information"]["date_of_birth"], isPost)
+      this.afe["documentation_information"]["date_of_issue"] = this.computeDate(this.afe["documentation_information"]["date_of_issue"], isPost)
+      this.afe["documentation_information"]["date_of_expiration"] = this.computeDate(this.afe["documentation_information"]["date_of_expiration"], isPost)
+      this.afe["documentation_information"]["crew_visas"].forEach((item, index) => {
+        this.afe["documentation_information"]["crew_visas"][index]["date_of_expiration"] = this.computeDate(item["date_of_expiration"], isPost)
+      })
+      this.afe["documentation_information"]["stcw_certification"].forEach((item, index) => {
+        this.afe["documentation_information"]["stcw_certification"][index]["date_of_expiration"] = this.computeDate(item["date_of_expiration"], isPost)
+      })
+      this.afe["documentation_information"]["seamans_book"].forEach((item, index) => {
+        this.afe["documentation_information"]["seamans_book"][index]["date_of_expiration"] = this.computeDate(item["date_of_expiration"], isPost)
+      })
+      this.afe["documentation_information"]["other_certificates"].forEach((item, index) => {
+        this.afe["documentation_information"]["other_certificates"][index]["date_of_issue"] = this.computeDate(item["date_of_issue"], isPost)
+        this.afe["documentation_information"]["other_certificates"][index]["date_of_expiration"] = this.computeDate(item["date_of_expiration"], isPost)
+      })
+      this.afe["employment_history"].forEach((item, index) => {
+        this.afe["employment_history"][index]["from"] = this.computeDate(item["from"], isPost)
+        this.afe["employment_history"][index]["to"] = this.computeDate(item["to"], isPost)
+      })
+      this.afe["education"].forEach((item, index) => {
+        this.afe["education"][index]["from"] = this.computeDate(item["from"], isPost)
+        this.afe["education"][index]["to"] = this.computeDate(item["to"], isPost)
+      })
+    },
+    save() {
 
       // init header
       const context = this
@@ -1134,6 +1203,12 @@ export default {
           'Authorization': `Bearer ${context.getCookie(context.tokenCookie)}`,
         }
       }
+
+      // loading
+      this.isSaving = true
+
+      // parsing date
+      this.parsingDate(true)
 
       // upload file
       axios.post(url, formData, header).then(function (response) {
@@ -1146,15 +1221,18 @@ export default {
         // show error
         context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
 
-      }).finally(function (){
+      }).finally(function () {
 
         // reload
         context.getData()
 
+        // loading
+        context.isSaving = false
+
       })
 
     },
-    getData(){
+    getData() {
 
       // init header
       const context = this
@@ -1171,10 +1249,22 @@ export default {
         // bind
         context.afe = response.data.data
 
+        // parsing date
+        context.parsingDate()
+
+        // is other define
+        context.defineIsOther()
+
       }).catch(function (error) {
 
         // show error
-        context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+        try {
+          if (!error.response.data.message.includes(context.noDocResultMessage)) {
+            context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+          }
+        } catch (e) {
+          context.showToast(context.toastSeverityError, error.message, context.toastDefaultLife)
+        }
 
       })
     }

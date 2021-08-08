@@ -25,6 +25,7 @@ export default {
             verifiedMessage: "already verified",
             notVerifiedMessage: "not verified",
             confirmNotMatchMessage: "confirm password",
+            noDocResultMessage: "no documents",
 
             emailAlreadyTakenMessage: "email is already taken",
             credentialIsNotMatchMessage: "credential is not match",
