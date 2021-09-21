@@ -3,10 +3,10 @@ import axios from "axios";
 export default {
     data() {
         return {
-            apiPDFUrl: "https://api.seafarindo.online/public/Application%20For%20Employment-FIX.pdf",
-            apiAuthUrl: "https://api.seafarindo.online/authentication/v1",
-            apiStorageUrl: "https://api.seafarindo.online/storage/v1",
-            apiDocumentUrl: "https://api.seafarindo.online/document/v1",
+            apiAuthUrl: "https://api.seafarindo.online/v1/authentication",
+            apiStorageUrl: "https://api.seafarindo.online/v1/storage",
+            apiDocumentUrl: "https://api.seafarindo.online/v1/document",
+            companyID: "a1c14126-58b6-4515-9130-85cc3101fa2f",
 
             tokenCookie: "token",
             refreshTokenCookie: "refresh_token",
@@ -59,7 +59,7 @@ export default {
 
                 // current user api
                 const context = this
-                let url = `${context.apiAuthUrl}/auth/verified/current`
+                let url = `${context.apiAuthUrl}/user/verified/current`
                 let header = {
                     headers: {
                         Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,

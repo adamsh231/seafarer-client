@@ -109,7 +109,7 @@ export default {
 
       // verify api
       const context = this
-      let url = `${context.apiAuthUrl}/auth/recover/otp`
+      let url = `${context.apiAuthUrl}/user/recover/otp`
       let data = {
         otp: this.otp.join(""),
         email: this.email
@@ -156,7 +156,7 @@ export default {
         const context = this
 
         // login api
-        let url = `${context.apiAuthUrl}/auth/recover/email/otp`
+        let url = `${context.apiAuthUrl}/user/recover/email/otp`
         let data = {
           email: this.email
         }

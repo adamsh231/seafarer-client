@@ -96,12 +96,14 @@ export default {
         context.disabled = true
 
         // register api
-        let url = `${context.apiAuthUrl}/auth/register`
+        let url = `${context.apiAuthUrl}/user/register`
         let data = {
           name: this.fullName,
           email: this.email,
-          password: this.password
+          password: this.password,
+          company_id: context.companyID,
         }
+        console.log(data)
         axios.post(url, data).then(function (response) {
 
           // show toast

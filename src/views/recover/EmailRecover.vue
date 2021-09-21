@@ -77,7 +77,7 @@ export default {
         const context = this
 
         // login api
-        let url = `${context.apiAuthUrl}/auth/recover/email/otp`
+        let url = `${context.apiAuthUrl}/user/recover/email/otp`
         let data = {
           email: this.email
         }

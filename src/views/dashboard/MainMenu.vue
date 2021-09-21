@@ -71,13 +71,12 @@ export default {
       context.$router.replace('/')
     },
     afe(){
-      const context = this
-      window.open(context.apiPDFUrl, "_blank");
+      alert("Under maintenance!")
     },
     getCurrentUser() {
       // current user api
       const context = this
-      let url = `${context.apiAuthUrl}/auth/verified/current`
+      let url = `${context.apiAuthUrl}/user/verified/current`
       let header = {
         headers: {
           Authorization: `Bearer ${context.getCookie(context.tokenCookie)}`,

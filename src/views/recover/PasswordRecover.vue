@@ -90,7 +90,7 @@ export default {
       if (isValid) {
 
         // current user api
-        let url = `${context.apiAuthUrl}/auth/recover/password`
+        let url = `${context.apiAuthUrl}/user/recover/password`
         let data = {
           password: context.password,
           confirm_password: context.confirmPassword
