@@ -4,14 +4,8 @@
 
   <div class="p-shadow-24 container p-mx-auto p-mt-5">
 
-    <div class="p-grid p-mb-0 pc" style="cursor: pointer">
-      <div class="p-col">
-        <img src="../../assets/logo2.png" class="logo-image p-ml-5 p-mt-4" @click="$router.push('/dashboard')">
-      </div>
-      <div class="p-col p-text-center doc-text">
-        <h1 class="c-primary">Documents</h1>
-      </div>
-      <div class="p-col"></div>
+    <div>
+      <BackButton to="/" class="p-mt-4 p-ml-4" style="color: black"/>
     </div>
 
     <div class="p-text-center mobile p-d-none" style="cursor: pointer">
@@ -90,10 +84,13 @@
 <script>
 
 import axios from "axios";
+import BackButton from "../../components/BackButton";
 
 export default {
   name: "Documents",
-  components: {},
+  components: {
+    BackButton,
+  },
   data() {
     return {
       id: 0,
@@ -256,6 +253,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.mobile {
+  display: block !important;
+  font-size: 20px;
+}
+
+.logo-image {
+  width: 100px !important;
+  height: 100px !important;
+}
 
 @media only screen and (max-width: 600px) {
   .file-name {
